@@ -1,9 +1,12 @@
 {
   "dependencies": {
     "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "GettingFit",
-      "secretStore": "LocalSecretsFile"
+
+      "type": "mssql",
+      "connectionId": "GettinFit",
+      "suggestion": "true",
+      "ignored": "true"
+
     }
   }
 }
