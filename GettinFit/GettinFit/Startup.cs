@@ -60,10 +60,4 @@ namespace GettinFit
 }
 
 
-app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
-    }
-}
+
