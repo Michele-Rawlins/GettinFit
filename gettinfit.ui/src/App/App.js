@@ -15,8 +15,8 @@ import {
 } from 'react-router-dom';
 
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
-import UserProfile from '../components/pages/UserProfile/UserProfile';
-import NewUser from '../components/pages/NewUser/NewUser';
+// import UserProfile from '../components/pages/UserProfile/UserProfile';
+// import NewUser from '../components/pages/NewUser/NewUser';
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
   const routeChecker = (props) => (authed === true
@@ -63,19 +63,11 @@ class App extends React.Component {
               <div className="row">
               <Switch>
               <Route path='/home' component={Home} authed={authed} />
-                <Route path='/users/new' component={NewUser} authed={authed} />
+                {/* <Route path='/users/new' component={NewUser} authed={authed} />
                 <PrivateRoute path='/users/:usersId' component={SingleUser} authed={authed} />
-                {/* <Route path='/courses/singleCourseView/:courseId' component={SingleCourseView} authed={authed} />
-                <Route path='/courses/:courseTypeId' component={SingleCategory} authed={authed} /> */}
                 <PrivateRoute path='/users' component={Users} authed={authed} />
-                <PrivateRoute path='/userProfile' component={UserProfile} authed={authed} />
-                {/* <Route path='/courses' component={Courses} authed={authed} />
-                <Route path='/search-results' render={() => <SearchResults filteredCourses={this.state.filteredCourses} />} authed={authed} /> */}
-                <Route path="/login" component={Login} authed={authed}/>
-
-                {/* <PrivateRoute path='/payment-options' component={PaymentOptions} authed={authed} />
-                <Route path='/order-confirmation/:invoiceId' component={OrderConfirmation} authed={authed} />
-                <Route path='/shopping-cart' render={() => <ShoppingCart />} authed={authed} /> */}
+                <PrivateRoute path='/userProfile' component={UserProfile} authed={authed} /> */}
+                {/* <Route path="/login" component={Login} authed={authed}/> */}
                 <Redirect from= "*" to="/home"/>
               </Switch>
               </div>
