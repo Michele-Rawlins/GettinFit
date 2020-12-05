@@ -16,6 +16,8 @@ import {
 
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 import Home from '../components/pages/Home/Home/Home';
+import Jumbotron from '../components/pages/Home/JumbotronHome/JumbotronHome';
+
 // import UserProfile from '../components/pages/UserProfile/UserProfile';
 // import NewUser from '../components/pages/NewUser/NewUser';
 
@@ -59,6 +61,7 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <React.Fragment>
+            <Jumbotron></Jumbotron>
             <MyNavbar authed={authed} />
             <div className="container">
               <div className="row">
