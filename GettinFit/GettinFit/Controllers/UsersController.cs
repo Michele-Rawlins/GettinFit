@@ -22,6 +22,14 @@ namespace GettinFit.Controllers
             _repo = new UserRepository();
         }
 
+
+        [HttpGet]
+        public IActionResult GetAllUsers()
+        {
+            var allUsers = _repo.GetAll();
+
+            return Ok(allUsers);
+        }
         [HttpGet("{id}")]
         public IActionResult GetUser(int userId)
         {
