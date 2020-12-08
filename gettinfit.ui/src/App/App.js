@@ -5,7 +5,7 @@ import './App.scss';
 // import 'firebase/auth';
 // import firebase from 'firebase/app';
 
-
+import Workout from '../components/pages/Workout/Workout';
 
 import {
   BrowserRouter,
@@ -68,8 +68,8 @@ class App extends React.Component {
               <div className="row">
               <Switch>
               <Route path='/home' component={Home} authed={authed} />
+              <Route path='/workout' component={Workout} authed={authed} />
                 {/* <Route path='/users/new' component={NewUser} authed={authed} />
-                <PrivateRoute path='/users/:usersId' component={SingleUser} authed={authed} />
                 <PrivateRoute path='/users' component={Users} authed={authed} />
                 <PrivateRoute path='/userProfile' component={UserProfile} authed={authed} /> */}
                 {/* <Route path="/login" component={Login} authed={authed}/> */}
