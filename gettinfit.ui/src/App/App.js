@@ -63,6 +63,7 @@ class App extends React.Component {
           <React.Fragment>
             <Jumbotron></Jumbotron>
             <MyNavbar authed={authed} />
+            
             <div className="container">
               <div className="row">
               <Switch>
