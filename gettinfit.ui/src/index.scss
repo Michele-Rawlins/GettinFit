@@ -8,7 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #242A4A;
+  background-color: #9D576D;
 }
 
 code {
@@ -16,8 +16,18 @@ code {
     monospace;
 }
 
+.jumbotron{
+  background-color: #9D576D;  
+  height: 425px;
+  margin-left: calc(50% - 50vw);
+  width: 100vw;
+}
 .yogaPic {
-  width: 1200px;
+  text-align: center;
+ 
+ 
+ 
+  
 }
 
 .carouselItem {
