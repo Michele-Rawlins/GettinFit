@@ -29,7 +29,7 @@ namespace GettinFit.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult getWorkoutByid(int id)
+        public IActionResult GetWorkoutByid(int id)
         {
             var workout = _repo.GetWorkoutById(id);
 
@@ -39,6 +39,35 @@ namespace GettinFit.Controllers
         }
 
 
+        [HttpGet("user/{userId}")]
+        public IActionResult GetUserWorkout(int userId)
+        {
+            var userWorkout = _repo.GetUserWorkout(userId);
+
+            if (userWorkout == null) return NoContent();
+
+            return Ok(userWorkout);
+
+        }
+
+
+        //[HttpPost]
+        //public IActionResult CreateNewWorkout(Workout workout)
+        //{
+        //    _repo.CreateNewWorkout(workout);
+
+        //    return Created($"/api/workouts/{workout.WorkoutId}", workout);
+        //}
+
+        [HttpPost]
+        public IActionResult CreateNewWorkout(Workout workout)
+        {
+            
+             _repo.CreateNewWorkout(workout); 
+
+
+            return Created($"/api/workouts/{workout.WorkoutId}", workout);
+        }
     }
 
 

@@ -29,7 +29,7 @@ namespace GettinFit.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult getMealByid(int id)
+        public IActionResult GetMealByid(int id)
         {
             var meal = _repo.GetMealById(id);
 
