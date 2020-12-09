@@ -16,9 +16,9 @@ class Workout extends React.Component {
     newReps: '',
     newSets: '',
     newWeight: '',
-    newBodyTarget: '',
+    newBodyPart: '',
     newCaloriesBurned: '',
-    newWorkoutDate: '',
+    newDate: '',
     uid: 0,
     dropdownOpen: false,
      }
@@ -38,14 +38,18 @@ class Workout extends React.Component {
     this.setState({ newSets: e.target.value});
   }
 
+  newDate = (e) => {
+    e.preventDefault();
+    this.setState({ newDate: e.target.value});
+  }
   newWeight = (e) => {
     e.preventDefault();
     this.setState({ newWeight: e.target.value});
   }
 
-  newBodyTarget = (e) => {
+  newBodyPart = (e) => {
     e.preventDefault();
-    this.setState({ newBodyTarget: e.target.value});
+    this.setState({ newBodyPart: e.target.value});
   }
 
   newCaloriesBurned = (e) => {
@@ -60,9 +64,9 @@ class Workout extends React.Component {
       newReps,
       newSets,
       newWeight,
-      newBodyTarget,
+      newBodyPart,
       newCaloriesBurned,
-      newWorkoutDate,
+      newDate,
       
   
     } = this.state;
@@ -72,9 +76,9 @@ const newWorkout = {
     reps: newReps,
     sets:  newSets,
     weight:  newWeight,
-    bodyTarget:  newBodyTarget,
+    bodyPart:  newBodyPart,
     caloriesBurned:  newCaloriesBurned,
-    workoutDate: new Date
+    Date: newDate
     // uid: authData.getUid(),
 
 };
@@ -92,8 +96,9 @@ workoutData.addWorkout(newWorkout)
         newReps,
         newSets,
         newWeight,
-        newBodyTarget,
+        newBodyPart,
         newCaloriesBurned,
+        newDate,
           } = this.state;
    
     
@@ -146,12 +151,12 @@ workoutData.addWorkout(newWorkout)
         />
         </div>
         <div className="form-group">
-        <label htmlFor="new-bodyTarget">Body Target</label>
+        <label htmlFor="new-bodyPart">Body Part</label>
       <select
         className="form-control"
-        id="new-bodyTarget"
-        value={newBodyTarget}
-        onChange={this.newBodyTarget}>
+        id="new-bodyPart"
+        value={newBodyPart}
+        onChange={this.newBodyPart}>
         <option value="1">Arms</option>
         <option value="2">Legs</option>
         <option value="3">Back</option>
@@ -168,6 +173,17 @@ workoutData.addWorkout(newWorkout)
         onChange={this.newCaloriesBurned}
         />
         </div>
+        <div className="form-group">
+        <label htmlFor="new-date">Date</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-date"
+        value={newDate}
+        onChange={this.newDate}
+        />
+        </div>
+        
         <button className="btn btn-secondary" onClick={this.saveNewWorkout}>Save New Workout</button>
       </form>
     </div>

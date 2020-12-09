@@ -14,7 +14,7 @@ const GetUserWorkout = (userId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const addWorkout = (userWorkout) => axios.post(`${baseUrl}/workouts`, userWorkout);
+const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
 
 export default {
   GetUserWorkout,

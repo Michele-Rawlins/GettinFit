@@ -12,7 +12,7 @@ namespace GettinFit.Models
         public int Reps { get; set; }
         public int Sets { get; set; }
         public int Weight { get; set; }
-        public BodyTarget WhichArea { get; set; }
+        public string BodyPart { get; set; }
         public int CaloriesBurned { get; set; }
         public int UserId { get; set; }
         public DateTime Date { get; set; }

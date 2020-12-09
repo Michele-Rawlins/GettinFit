@@ -45,7 +45,7 @@ namespace GettinFit.Data
 
 
 
-        public int CreateNewWorkout(int userId)
+        public Workout CreateNewWorkout(Workout workoutToAdd)
         {
             using var db = new SqlConnection(_connectionString);
 
@@ -55,24 +55,31 @@ namespace GettinFit.Data
                                ,[Reps]
                                ,[Sets]
                                 ,[Weight]
-                                ,[BodyTarget]
+                                ,[BodyPart]
                                 ,[CaloriesBurned]
                                 ,[UserId]
-                                ,[Date])                                )
+                                ,[Date])                                
                                Output inserted.workoutid
                         VALUES
-                               (@exerciseName,@reps,@sets,@weight,@bodyTarget,@caloriesBurned,@userId,@date)";
+                               (@exerciseName,@reps,@sets,@weight,@bodyPart,@caloriesBurned,@userId,@date)";
 
-            var parameters = new { user = userId };
+            //var parameters = new { workout = WorkoutId };
 
-            //var parameters = new { foodDescription = mealToAdd.FoodDescription, calorieCount = mealToAdd.CalorieCount, whichMeal = mealToAdd.MealType, date = mealToAdd.Date, userId = mealToAdd.UserId };
+            var parameters = new { exerciseName = workoutToAdd.ExerciseName, reps = workoutToAdd.Reps, sets = workoutToAdd.Sets, weight = workoutToAdd.Weight, bodyPart = workoutToAdd.BodyPart, caloriesBurned = workoutToAdd.CaloriesBurned, userId = workoutToAdd.UserId, date = workoutToAdd.Date };
 
-            var newId = db.QuerySingle<int>(sql, parameters);
+            var newWorkout = db.QuerySingle<Workout>(sql, parameters);
 
-            return newId;
+          
+
+            return newWorkout;
+
+          
+         
+
+            
         }
 
-        public Meal GetUserWorkout(int userId)
+        public Workout GetUserWorkout(int userId)
         {
             using var db = new SqlConnection(_connectionString);
 
@@ -82,7 +89,7 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var workout = db.QueryFirstOrDefault<Meal>(query, parameters);
+            var workout = db.QueryFirstOrDefault<Workout>(query, parameters);
 
             return workout;
         }
