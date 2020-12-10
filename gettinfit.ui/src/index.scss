@@ -27,8 +27,6 @@ code {
  width: 1200px;
  height: 250px;
  
- 
- 
   
 }
 
@@ -37,4 +35,13 @@ code {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.workoutCard {
+  display: flex;
+  
+  // justify-Content: center;
+  // justify-content: space-between;
+  flex-direction: row;
+
 }
