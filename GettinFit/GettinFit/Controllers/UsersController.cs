@@ -10,18 +10,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GettinFit.Controllers
 {
+    public abstract class FirebaseEnabledController : ControllerBase
+    {
+        protected string UserId => User.FindFirst(x => x.Type == "user_id").Value;
+    }
     [Route("api/users")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : FirebaseEnabledController
     {
-
         UserRepository _repo;
 
         public UsersController()
         {
             _repo = new UserRepository();
         }
-
 
         [HttpGet]
         public IActionResult GetAllUsers()
@@ -30,10 +32,11 @@ namespace GettinFit.Controllers
 
             return Ok(allUsers);
         }
+
         [HttpGet("{id}")]
-        public IActionResult GetUser(int userId)
+        public IActionResult GetSingleUser(int id)
         {
-            var singleUser = _repo.GetUserById(userId);
+            var singleUser = _repo.GetUserById(id);
 
             return Ok(singleUser);
         }
@@ -41,9 +44,9 @@ namespace GettinFit.Controllers
         [HttpGet("{email}/authedUser")]
         public IActionResult GetAuthenticatedUser(string email)
         {
-            var authenicatedUser = _repo.GetAuthedUserByEmail(email);
+            var authenticatedUser = _repo.GetAuthedUserByEmail(email);
 
-            return Ok(authenicatedUser);
+            return Ok(authenticatedUser);
         }
 
         [HttpPost]
@@ -51,9 +54,7 @@ namespace GettinFit.Controllers
         {
             _repo.Add(user);
 
-
             return Created($"/api/users/{user.UserId}", user);
         }
-
     }
 }
