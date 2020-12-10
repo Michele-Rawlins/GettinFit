@@ -1,9 +1,9 @@
 import React from 'react';
-// import fbConnection from "../helpers/data/connection";
-// import Login from '../components/pages/Login/Login';
+import fbConnection from "../helpers/data/connection";
+import Login from '../components/pages/Login/Login';
 import './App.scss';
-// import 'firebase/auth';
-// import firebase from 'firebase/app';
+import 'firebase/auth';
+import firebase from 'firebase/app';
 
 import Workout from '../components/pages/Workout/Workout';
 
@@ -17,9 +17,11 @@ import {
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 import Home from '../components/pages/Home/Home/Home';
 import Jumbotron from '../components/pages/Home/JumbotronHome/JumbotronHome';
-
+import Users from '../components/pages/Users/Users';
+import SingleUser from '../components/shared/SingleUser/SingleUser';
 // import UserProfile from '../components/pages/UserProfile/UserProfile';
-// import NewUser from '../components/pages/NewUser/NewUser';
+
+fbConnection();
 
 // const PrivateRoute = ({ component: Component, authed, ...rest }) => {
 //   const routeChecker = (props) => (authed === true
@@ -37,21 +39,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // this.removeListener = firebase.auth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.setState({ authed: true });
-    //   } else {
-    //     this.setState({ authed: false });
-    //   }
+    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ authed: true });
+      } else {
+        this.setState({ authed: false });
+      }
       
-    // });
+    });
   };
     
   
 
   componentWillUnmount() {
 
-    // this.removeListener();
+    this.removeListener();
   };
 
   
