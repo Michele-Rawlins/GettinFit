@@ -9,11 +9,11 @@ namespace GettinFit.Models
     {
         public int WorkoutId { get; set; }
         public string ExerciseName { get; set; }
-        public int Reps { get; set; }
-        public int Sets { get; set; }
-        public int Weight { get; set; }
+        public string Reps { get; set; }
+        public string Sets { get; set; }
+        public string Weight { get; set; }
         public string BodyPart { get; set; }
-        public int CaloriesBurned { get; set; }
+        public string CaloriesBurned { get; set; }
         public int UserId { get; set; }
         public DateTime Date { get; set; }
     }

@@ -19,7 +19,7 @@ class Workout extends React.Component {
     newBodyPart: '',
     newCaloriesBurned: '',
     newDate: '',
-    uid: 0,
+    // uid: 0,
     dropdownOpen: false,
      }
 
@@ -67,8 +67,6 @@ class Workout extends React.Component {
       newBodyPart,
       newCaloriesBurned,
       newDate,
-      
-  
     } = this.state;
 
 const newWorkout = {
@@ -83,16 +81,15 @@ const newWorkout = {
 
 };
 
-
-workoutData.addWorkout(newWorkout)
-.then(() => this.props.history.push('/workouts'))
-.catch((err) => console.error('unable to add new Workout'))
+console.log(newWorkout);
+ workoutData.addWorkout(newWorkout)
+ .then(() => this.props.history.push('/workouts'))
+ .catch((err) => console.error('unable to add new Workout'))
 }
 
   render() {
     const {
-
-      newExerciseName,
+        newExerciseName,
         newReps,
         newSets,
         newWeight,
@@ -123,7 +120,7 @@ workoutData.addWorkout(newWorkout)
         <div className="form-group">
         <label htmlFor="new-reps">Reps</label>
       <input
-        type="text"
+        type="number"
         className="form-control"
         id="new-reps"
         value={newReps}
@@ -133,7 +130,7 @@ workoutData.addWorkout(newWorkout)
         <div className="form-group">
         <label htmlFor="new-sets">Sets</label>
       <input
-        type="text"
+        type="number"
         className="form-control"
         id="new-sets"
         value={newSets}
@@ -143,7 +140,7 @@ workoutData.addWorkout(newWorkout)
         <div className="form-group">
         <label htmlFor="new-weight">Weight</label>
       <input
-        type="text"
+        type="number"
         className="form-control"
         id="new-weight"
         value={newWeight}
@@ -157,6 +154,7 @@ workoutData.addWorkout(newWorkout)
         id="new-bodyPart"
         value={newBodyPart}
         onChange={this.newBodyPart}>
+            <option value="">Select</option>
         <option value="1">Arms</option>
         <option value="2">Legs</option>
         <option value="3">Back</option>
@@ -166,7 +164,7 @@ workoutData.addWorkout(newWorkout)
         <div className="form-group">
         <label htmlFor="new-caloriesBurned">Calories Burned</label>
       <input
-        type="text"
+        type="number"
         className="form-control"
         id="new-caloriesBurned"
         value={newCaloriesBurned}
@@ -176,7 +174,7 @@ workoutData.addWorkout(newWorkout)
         <div className="form-group">
         <label htmlFor="new-date">Date</label>
       <input
-        type="text"
+        type="date"
         className="form-control"
         id="new-date"
         value={newDate}
