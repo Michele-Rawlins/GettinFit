@@ -10,6 +10,10 @@ import {
   Table,
 } from 'reactstrap';
 
+import {
+  Card, CardImg, CardText, CardTitle,CardBody, Col, Row
+} from 'reactstrap';
+
 class Workout extends React.Component {
   state = {
     newExerciseName: '',
@@ -186,8 +190,50 @@ workoutData.addWorkout(newWorkout)
         
         <button className="btn btn-secondary" onClick={this.saveNewWorkout}>Save New Workout</button>
       </form>
-    </div>
-    </div>
+     
+      <Row>
+      <Col sm="4">
+      <Card className="workoutCard">
+          <CardTitle tag="h4">Last Weeks Total</CardTitle>
+        <CardImg  src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
+        <CardBody>
+          
+          <CardText>Here are your totals from last week</CardText>
+          <CardText>Calories Burned:</CardText>
+          <CardText>Weight Lifted:</CardText>
+          
+        </CardBody>
+      </Card>
+    
+    
+    <Card className="workoutCard">
+          <CardTitle tag="h4">This Months Total</CardTitle>
+        <CardImg src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29ya291dHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
+        <CardBody>
+        
+          <CardText>Here are this Month's Totals</CardText>
+          <CardText>Calories Burned:</CardText>
+          <CardText>Weight Lifted:</CardText>
+        </CardBody>
+      </Card>
+   
+   
+     
+    <Card className="workoutCard">
+          <CardTitle tag="h4">Last Month's Total</CardTitle>
+        <CardImg src="https://images.unsplash.com/photo-1547919307-1ecb10702e6f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
+        <CardBody>
+          
+          <CardText>Here are Last Months Totals</CardText>
+          <CardText>Calories Burned:</CardText>
+          <CardText>Weight Lifted:</CardText>
+        </CardBody>
+      </Card>
+      </Col>
+      </Row>
+    
+       </div>
+       </div>   
   )
 }
 }
