@@ -1,6 +1,8 @@
 import React from 'react';
-import workoutData from '../../../../src/helpers/workoutData';
-// import authData from '../../../../src/helpers/authData';
+import workoutData from '../../../helpers/data/workoutData';
+import workoutShape from '../../../helpers/propz/workoutShape';
+
+import authData from '../../../../src/helpers/data/authData';
 
 import {
   Dropdown,
