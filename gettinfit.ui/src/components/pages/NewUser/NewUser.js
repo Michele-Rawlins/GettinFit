@@ -311,4 +311,3 @@ render() {
 }
 
 export default NewUser;
-
