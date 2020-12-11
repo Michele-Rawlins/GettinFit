@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {baseUrl} from '../constants.json';
+import {baseUrl} from '../data/constants.json';
 
 // import {baseUrl} from './constants.json';
 
