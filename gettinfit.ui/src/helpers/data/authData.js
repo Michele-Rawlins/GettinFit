@@ -34,7 +34,7 @@ const registerUser = (user) => {
       calorieGoal: user.calorieGoal,
      weightGoal: user.weightGoal,
      beginningWeight: user.beginningWeight,
-      firebaseUID: cred.firebaseUID 
+      // firebaseUID: cred.firebaseUID 
     };
 
     //get token from firebase

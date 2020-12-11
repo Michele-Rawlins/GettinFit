@@ -13,14 +13,14 @@ namespace GettinFit.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Sex { get; set; }
-        public int Height { get; set; }
-        public int CurrentWeight { get; set; }
-        public int Age { get; set; }
+        public string Height { get; set; }
+        public string CurrentWeight { get; set; }
+        public string Age { get; set; }
         public string ImageUrl { get; set; }
         public DateTime Birthdate { get; set; }
-        public int CalorieGoal {get; set;}
-        public int WeightGoal { get; set; }
-        public int BeginningWeight { get; set; }
+        public string CalorieGoal {get; set;}
+        public string WeightGoal { get; set; }
+        public string BeginningWeight { get; set; }
         public DateTime DateCreated { get; set; }
      
     }
