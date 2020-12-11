@@ -17,8 +17,8 @@ import {
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 import Home from '../components/pages/Home/Home/Home';
 import Jumbotron from '../components/pages/Home/JumbotronHome/JumbotronHome';
-import Users from '../components/pages/Users/Users';
-import SingleUser from '../components/shared/SingleUser/SingleUser';
+// import Users from '../components/pages/Users/Users';
+// import SingleUser from '../components/shared/SingleUser/SingleUser';
 // import UserProfile from '../components/pages/UserProfile/UserProfile';
 
 fbConnection();
