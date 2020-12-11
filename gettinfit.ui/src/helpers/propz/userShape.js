@@ -14,7 +14,7 @@ birthDate: PropTypes.string.isRequired,
 calorieGoal: PropTypes.string.isRequired,
 weightGoal: PropTypes.string.isRequired,
 beginningWeight: PropTypes.string.isRequired,
-dateCreated: PropTypes.string.isRequired,
+date: PropTypes.string.isRequired,
 
 });
 

@@ -67,7 +67,7 @@ namespace GettinFit.Data
             }
 
 
-            public void Add(User userToAdd)
+            public User CreateUser(User userToAdd)
             {
                 using var db = new SqlConnection(_connectionString);
 
@@ -85,16 +85,16 @@ namespace GettinFit.Data
                                 ,[CalorieGoal]
                                 ,[WeightGoal]
                                ,[BeginningWeight]
-                                ,[DateCreated])
+                                ,[Date])
                                Output inserted.userid
                         VALUES
-                               (@firstName,@lastName,@email,@sex,@height,@currentWeight,@age,@imageUrl,@birthdate,@calorieGoal,@weightGoal,@beginningWeight, @dateCreated)";
+                               (@firstName,@lastName,@email,@sex,@height,@currentWeight,@age,@imageUrl,@birthdate,@calorieGoal,@weightGoal,@beginningWeight, @date)";
 
-                var parameters = new { firstName = userToAdd.FirstName, lastName = userToAdd.LastName, email = userToAdd.Email, sex = userToAdd.Sex, height = userToAdd.Height, currentWeight = userToAdd.CurrentWeight,age = userToAdd.Age,  imageUrl = userToAdd.ImageUrl, birhtdate = userToAdd.Birthdate, calorieGoal = userToAdd.CalorieGoal, weightGoal = userToAdd.WeightGoal, dateCreated = userToAdd.DateCreated };
+                var parameters = new { firstName = userToAdd.FirstName, lastName = userToAdd.LastName, email = userToAdd.Email, sex = userToAdd.Sex, height = userToAdd.Height, currentWeight = userToAdd.CurrentWeight,age = userToAdd.Age,  imageUrl = userToAdd.ImageUrl, birthdate = userToAdd.Birthdate, calorieGoal = userToAdd.CalorieGoal, weightGoal = userToAdd.WeightGoal, beginningWeight = userToAdd.BeginningWeight, date = userToAdd.Date };
 
-                var newId = db.ExecuteScalar<int>(sql, parameters);
+                var newUser = db.QuerySingle<User>(sql, parameters);
 
-                userToAdd.UserId = newId;
+            return newUser;
             }
 
         

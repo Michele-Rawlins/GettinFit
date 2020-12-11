@@ -19,7 +19,7 @@ class NewUser extends React.Component {
     newCalorieGoal: '',
     newWeightGoal: '',
     newBeginningWeight: '',
-    newDateCreated: '',
+    newDate: '',
     
      }
 
@@ -89,9 +89,9 @@ class NewUser extends React.Component {
     this.setState({ newBeginningWeight: e.target.value});
   }
 
-  newDateCreated = (e) => {
+  newDate = (e) => {
     e.preventDefault();
-    this.setState({ newDateCreated: e.target.value});
+    this.setState({ newDate: e.target.value});
   }
 
 
@@ -111,7 +111,7 @@ class NewUser extends React.Component {
       newCalorieGoal,
       newWeightGoal,
       newBeginningWeight,
-      newDateCreated,
+      newDate,
 
 
     } = this.state;
@@ -130,7 +130,7 @@ const newUser = {
     calorieGoal:  newCalorieGoal,
     weightGoal: newWeightGoal,
     beginningWeight:  newBeginningWeight,
-    dateCreated:  newDateCreated,
+    date:  newDate,
      // uid: authData.getUid(),
 
 };
@@ -156,7 +156,7 @@ render() {
       newCalorieGoal,
       newWeightGoal,
       newBeginningWeight,
-      newDateCreated,
+      newDate,
         } = this.state;
 
   return (
@@ -294,13 +294,13 @@ render() {
         />
         </div>
         <div className="form-group">
-        <label htmlFor="new-dateCreated">Date Created</label>
+        <label htmlFor="new-date">Date Created</label>
       <input
-        type="text"
+        type="date"
         className="form-control"
-        id="new-dateCreated"
-        value={newDateCreated}
-        onChange={this.newDateCreated}
+        id="new-date"
+        value={newDate}
+        onChange={this.newDate}
         />
         </div>
         <button className="btn btn-secondary" onClick={this.saveNewUser}>Save New User</button>

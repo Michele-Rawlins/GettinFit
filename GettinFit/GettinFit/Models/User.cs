@@ -17,11 +17,11 @@ namespace GettinFit.Models
         public string CurrentWeight { get; set; }
         public string Age { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime Birthdate { get; set; }
+        public string Birthdate { get; set; }
         public string CalorieGoal {get; set;}
         public string WeightGoal { get; set; }
         public string BeginningWeight { get; set; }
-        public DateTime DateCreated { get; set; }
+        public string Date { get; set; }
      
     }
 }

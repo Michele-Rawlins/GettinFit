@@ -1,5 +1,5 @@
 import React from 'react';
-import './SingleUser.scss';
+
 
 class SingleUser extends React.Component {
   render() {
@@ -24,7 +24,7 @@ class SingleUser extends React.Component {
             <li>CalorieGoal:  {user.calorieGoal}</li>
             <li>WeightGoal: {user.weightGoal}</li>
             <li>BeginningWeight:  {user.beginningWeight}</li>
-            <li>Date Created: {user.dateCreated} </li>
+            <li>Date Created: {user.date} </li>
             
         </ul>
       </div>
