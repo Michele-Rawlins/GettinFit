@@ -52,7 +52,7 @@ namespace GettinFit.Controllers
         [HttpPost]
         public IActionResult CreateUser(User user)
         {
-            _repo.Add(user);
+            _repo.CreateUser(user);
 
             return Created($"/api/users/{user.UserId}", user);
         }

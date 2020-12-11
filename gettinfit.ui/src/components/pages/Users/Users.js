@@ -1,7 +1,7 @@
 import React from 'react';
 import userData from '../../../helpers/data/userData';
 import SingleUser from '../../shared/SingleUser/SingleUser';
-import './Users.scss';
+
 
 
 
