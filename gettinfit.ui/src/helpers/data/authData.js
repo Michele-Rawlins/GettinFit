@@ -24,9 +24,16 @@ const registerUser = (user) => {
     let userInfo = {
       firstName: user.firstName,
       lastName: user.lastName,
-      username: user.userName,
-      photoUrl: user.photoUrl,
       email: cred.user.email,
+      sex: user.sex,
+      height: user.height,
+      currentWeight: user.currentWeight,
+      age: user.age,
+      imageUrl: user.imageUrl,
+      birthdate: user.birthdate,
+      calorieGoal: user.calorieGoal,
+     weightGoal: user.weightGoal,
+     beginningWeight: user.beginningWeight,
       firebaseUID: cred.firebaseUID 
     };
 
