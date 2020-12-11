@@ -8,10 +8,19 @@ class NewUser extends React.Component {
   state = {
     newFirstName: '',
     newLastName: '',
-    newUserName: '',
-    newPhotoUrl: '',
     newEmail: '',
     newPassword: '',
+    newSex: '',
+    newHeight: '',
+    newCurrentWeight:'',
+    newAge: '',
+    newImageUrl: '',
+    newBirthdate: '',
+    newCalorieGoal: '',
+    newWeightGoal: '',
+    newBeginningWeight: '',
+    newDateCreated: '',
+    
      }
 
   newFirstName = (e) => {
@@ -23,17 +32,7 @@ class NewUser extends React.Component {
     e.preventDefault();
     this.setState({ newLastName: e.target.value});
   }
-
-  newUserName = (e) => {
-    e.preventDefault();
-    this.setState({ newUserName: e.target.value});
-  }
-
-  newPhotoUrl = (e) => {
-    e.preventDefault();
-    this.setState({ newPhotoUrl: e.target.value});
-  }
-
+  
   newEmail = (e) => {
     e.preventDefault();
     this.setState({ newEmail: e.target.value});
@@ -43,16 +42,76 @@ class NewUser extends React.Component {
     e.preventDefault();
     this.setState({ newPassword: e.target.value});
   }
+ 
+ newSex = (e) => {
+    e.preventDefault();
+    this.setState({ newSex: e.target.value});
+  }
+
+  newHeight = (e) => {
+    e.preventDefault();
+    this.setState({ newHeight: e.target.value});
+  }
+
+  newCurrentWeight = (e) => {
+    e.preventDefault();
+    this.setState({ newCurrentWeight: e.target.value});
+  }
+
+  newAge = (e) => {
+    e.preventDefault();
+    this.setState({ newAge: e.target.value});
+  }
+
+
+  newImageUrl = (e) => {
+    e.preventDefault();
+    this.setState({ newImageUrl: e.target.value});
+  }
+
+  newBirthdate = (e) => {
+    e.preventDefault();
+    this.setState({ newBirthdate: e.target.value});
+  }
+
+  newCalorieGoal = (e) => {
+    e.preventDefault();
+    this.setState({ newCalorieGoal: e.target.value});
+  }
+
+  newWeightGoal = (e) => {
+    e.preventDefault();
+    this.setState({ newWeightGoal: e.target.value});
+  }
+
+  newBeginningWeight = (e) => {
+    e.preventDefault();
+    this.setState({ newBeginningWeight: e.target.value});
+  }
+
+  newDateCreated = (e) => {
+    e.preventDefault();
+    this.setState({ newDateCreated: e.target.value});
+  }
+
 
   saveNewUser = (e) => {
     e.preventDefault();
     const {
       newFirstName,
       newLastName,
-      newUserName,
-      newPhotoUrl,
       newEmail,
       newPassword,
+      newSex,
+      newHeight,
+      newCurrentWeight,
+      newAge,
+      newImageUrl,
+      newBirthdate,
+      newCalorieGoal,
+      newWeightGoal,
+      newBeginningWeight,
+      newDateCreated,
 
 
     } = this.state;
@@ -60,11 +119,19 @@ class NewUser extends React.Component {
 const newUser = {
     firstName: newFirstName,
     lastName: newLastName,
-    userName:  newUserName,
-    photoUrl:  newPhotoUrl,
-    email:  newEmail,
-    password:  newPassword,
-    // uid: authData.getUid(),
+    email: newEmail,
+    password: newPassword,
+    sex: newSex,
+    height: newHeight,
+    currentWeight:  newCurrentWeight,
+    age: newAge,
+    imageUrl:  newImageUrl,
+    birthdate:  newBirthdate,
+    calorieGoal:  newCalorieGoal,
+    weightGoal: newWeightGoal,
+    beginningWeight:  newBeginningWeight,
+    dateCreated:  newDateCreated,
+     // uid: authData.getUid(),
 
 };
 
@@ -78,10 +145,18 @@ render() {
 
     newFirstName,
       newLastName,
-      newUserName,
-      newPhotoUrl,
       newEmail,
       newPassword,
+      newSex,
+      newHeight,
+      newCurrentWeight,
+      newAge,
+      newImageUrl,
+      newBirthdate,
+      newCalorieGoal,
+      newWeightGoal,
+      newBeginningWeight,
+      newDateCreated,
         } = this.state;
 
   return (
@@ -109,26 +184,6 @@ render() {
         />
         </div>
         <div className="form-group">
-        <label htmlFor="new-user-name">User Name</label>
-      <input
-        type="text"
-        className="form-control"
-        id="new-user-name"
-        value={newUserName}
-        onChange={this.newUserName}
-        />
-        </div>
-        <div className="form-group">
-        <label htmlFor="new-photoUrl">Place Photo Url here</label>
-      <input
-        type="text"
-        className="form-control"
-        id="new-photoUrl"
-        value={newPhotoUrl}
-        onChange={this.newPhotoUrl}
-        />
-        </div>
-        <div className="form-group">
         <label htmlFor="new-email">Email</label>
       <input
         type="text"
@@ -148,6 +203,106 @@ render() {
         onChange={this.newPassword}
         />
         </div>
+        <div className="form-group">
+        <label htmlFor="new-sex">Sex</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-sex"
+        value={newSex}
+        onChange={this.newSex}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-height">Height</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-height"
+        value={newHeight}
+        onChange={this.newHeight}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-currentWeight">Current Weight</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-currentWeight"
+        value={newCurrentWeight}
+        onChange={this.newCurrentWeight}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-age">Age</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-age"
+        value={newAge}
+        onChange={this.newAge}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-imageUrl">Place Image Url here</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-imageUrl"
+        value={newImageUrl}
+        onChange={this.newImageUrl}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-birthdate">Birthdate</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-birthdate"
+        value={newBirthdate}
+        onChange={this.newBirthdate}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-calorieGoal">Calorie Goal</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-calorieGoal"
+        value={newCalorieGoal}
+        onChange={this.newCalorieGoal}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-weightGoal">Weight Goal</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-weightGoal"
+        value={newWeightGoal}
+        onChange={this.newWeightGoal}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-beginningWeight">Beginning Weight</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-beginningWeight"
+        value={newBeginningWeight}
+        onChange={this.newBeginningWeight}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-dateCreated">Date Created</label>
+      <input
+        type="text"
+        className="form-control"
+        id="new-dateCreated"
+        value={newDateCreated}
+        onChange={this.newDateCreated}
+        />
+        </div>
         <button className="btn btn-secondary" onClick={this.saveNewUser}>Save New User</button>
       </form>
     </div>
@@ -156,4 +311,3 @@ render() {
 }
 
 export default NewUser;
-
