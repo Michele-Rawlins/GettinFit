@@ -10,6 +10,10 @@
 *.userosscache
 *.sln.docstates
 src/helpers/apiKeys.json
+.eslintcache
+
+
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

@@ -44,7 +44,7 @@ namespace GettinFit.Data
        
 
 
-        public int CreateNewMeal(int userId)
+        public Meal CreateNewMeal(Meal mealToAdd)
         {
             using var db = new SqlConnection(_connectionString);
 
@@ -54,18 +54,18 @@ namespace GettinFit.Data
                                ,[CalorieCount]
                                ,[WhichMeal]
                                 ,[Date]
-                                ,[UserId])                                )
+                                ,[UserId])                                
                                Output inserted.mealid
                         VALUES
-                               (@foodDescription,@calorieCount,@whichMeal,@date,@userId)";
+                               (@foodDescription,@calorieCount,@whichMeal,@date, 1)";
 
-            var parameters = new { user = userId };
+            //var parameters = new { user = userId };
             
-            //var parameters = new { foodDescription = mealToAdd.FoodDescription, calorieCount = mealToAdd.CalorieCount, whichMeal = mealToAdd.MealType, date = mealToAdd.Date, userId = mealToAdd.UserId };
+            var parameters = new { foodDescription = mealToAdd.FoodDescription, calorieCount = mealToAdd.CalorieCount, whichMeal = mealToAdd.WhichMeal, date = mealToAdd.Date };
 
-            var newId = db.QuerySingle<int>(sql, parameters);
+            var newMeal = db.QuerySingle<Meal>(sql, parameters);
 
-            return newId;
+            return newMeal;
         }
 
         public Meal GetUserMeal(int userId)
