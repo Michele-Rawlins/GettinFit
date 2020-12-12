@@ -16,7 +16,7 @@ const GetUserMeal = (userId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const addMeal = (newMeal) => axios.post(`${baseUrl}/workouts`, newMeal);
+const addMeal = (newMeal) => axios.post(`${baseUrl}/meals`, newMeal);
 // const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
 
 export default {

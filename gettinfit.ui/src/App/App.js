@@ -20,6 +20,7 @@ import Jumbotron from '../components/pages/Home/JumbotronHome/JumbotronHome';
 import NewUser from '../components/pages/NewUser/NewUser';
 import Users from '../components/pages/Users/Users';
 import SingleUser from '../components/shared/SingleUser/SingleUser';
+import Meal from '../components/pages/Meal/Meal';
 // import UserProfile from '../components/pages/UserProfile/UserProfile';
 
 fbConnection();
@@ -74,6 +75,7 @@ class App extends React.Component {
                <Route path='/users/new' component={NewUser} authed={authed} />
               <Route path='/workout' component={Workout} authed={authed} />
                <Route path='/users' component={Users} authed={authed} />
+               <Route path='/meals' component={Meal} suthed={authed} />
                 {/* <PrivateRoute path='/userProfile' component={UserProfile} authed={authed} />  */}
                 <Route path="/login" component={Login} authed={authed}/>
                 <Redirect from= "*" to="/home"/>
