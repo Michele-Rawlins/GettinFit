@@ -63,9 +63,9 @@ namespace GettinFit.Data
             
             //var parameters = new { foodDescription = mealToAdd.FoodDescription, calorieCount = mealToAdd.CalorieCount, whichMeal = mealToAdd.MealType, date = mealToAdd.Date, userId = mealToAdd.UserId };
 
-            var newId = db.QuerySingle<int>(sql, parameters);
+            var newMeal = db.QuerySingle<int>(sql, parameters);
 
-            return newId;
+            return newMeal;
         }
 
         public Meal GetUserMeal(int userId)
