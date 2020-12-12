@@ -5,7 +5,8 @@
 /.pnp
 .pnp.js
 src/helpers/apiKeys.json
-
+gettinfit.ui/.eslintcache
+.eslintcache
 # testing
 /coverage
 
