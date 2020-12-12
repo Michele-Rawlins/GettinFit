@@ -5,8 +5,8 @@ import {baseUrl} from '../data/constants.json';
 
 
 
-const GetUserWorkout = (userId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/workouts/user/${userId}`)
+const GetUserMeal = (userId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/meals/user/${userId}`)
     .then(response => {
       if (response.data !== "") {
         response.data = response.data.toFixed(2)
@@ -16,10 +16,10 @@ const GetUserWorkout = (userId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
+const addMeal = (newMeal) => axios.post(`${baseUrl}/meals`, newMeal);
 // const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
 
 export default {
-  GetUserWorkout,
-  addWorkout
+  GetUserMeal,
+  addMeal
 }

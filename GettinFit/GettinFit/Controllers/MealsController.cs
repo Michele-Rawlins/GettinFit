@@ -38,6 +38,15 @@ namespace GettinFit.Controllers
             return Ok(meal);
         }
 
+        [HttpPost]
+        public IActionResult CreateNewMeal(Meal meal)
+        {
 
-    }
+            _repo.CreateNewMeal(meal);
+
+
+            return Created($"/api/meals/{meal.MealId}", meal);
+        }
+
+          }
 }
