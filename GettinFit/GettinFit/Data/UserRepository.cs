@@ -85,12 +85,13 @@ namespace GettinFit.Data
                                 ,[CalorieGoal]
                                 ,[WeightGoal]
                                ,[BeginningWeight]
+                                ,[BeginningPhoto]
                                 ,[Date])
                                Output inserted.userid
                         VALUES
-                               (@firstName,@lastName,@email,@sex,@height,@currentWeight,@age,@imageUrl,@birthdate,@calorieGoal,@weightGoal,@beginningWeight, @date)";
+                               (@firstName,@lastName,@email,@sex,@height,@currentWeight,@age,@imageUrl,@birthdate,@calorieGoal,@weightGoal,@beginningWeight,@beginningPhoto, @date)";
 
-                var parameters = new { firstName = userToAdd.FirstName, lastName = userToAdd.LastName, email = userToAdd.Email, sex = userToAdd.Sex, height = userToAdd.Height, currentWeight = userToAdd.CurrentWeight,age = userToAdd.Age,  imageUrl = userToAdd.ImageUrl, birthdate = userToAdd.Birthdate, calorieGoal = userToAdd.CalorieGoal, weightGoal = userToAdd.WeightGoal, beginningWeight = userToAdd.BeginningWeight, date = userToAdd.Date };
+                var parameters = new { firstName = userToAdd.FirstName, lastName = userToAdd.LastName, email = userToAdd.Email, sex = userToAdd.Sex, height = userToAdd.Height, currentWeight = userToAdd.CurrentWeight,age = userToAdd.Age,  imageUrl = userToAdd.ImageUrl, birthdate = userToAdd.Birthdate, calorieGoal = userToAdd.CalorieGoal, weightGoal = userToAdd.WeightGoal, beginningWeight = userToAdd.BeginningWeight,beginningPhoto = userToAdd.BeginningPhoto, date = userToAdd.Date };
 
                 var newUser = db.QuerySingle<User>(sql, parameters);
 
