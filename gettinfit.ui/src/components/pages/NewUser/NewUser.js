@@ -19,6 +19,7 @@ class NewUser extends React.Component {
     newCalorieGoal: '',
     newWeightGoal: '',
     newBeginningWeight: '',
+    newBeginningPhoto: '',
     newDate: '',
     
      }
@@ -89,6 +90,11 @@ class NewUser extends React.Component {
     this.setState({ newBeginningWeight: e.target.value});
   }
 
+  newBeginningPhoto = (e) => {
+    e.preventDefault();
+    this.setState({ newBeginningPhoto: e.target.value});
+  }
+
   newDate = (e) => {
     e.preventDefault();
     this.setState({ newDate: e.target.value});
@@ -111,6 +117,7 @@ class NewUser extends React.Component {
       newCalorieGoal,
       newWeightGoal,
       newBeginningWeight,
+      newBeginningPhoto,
       newDate,
 
 
@@ -130,6 +137,7 @@ const newUser = {
     calorieGoal:  newCalorieGoal,
     weightGoal: newWeightGoal,
     beginningWeight:  newBeginningWeight,
+    beginningPhoto: newBeginningPhoto,
     date:  newDate,
      // uid: authData.getUid(),
 
@@ -156,6 +164,7 @@ render() {
       newCalorieGoal,
       newWeightGoal,
       newBeginningWeight,
+      newBeginningPhoto,
       newDate,
         } = this.state;
 
@@ -246,7 +255,7 @@ render() {
         <div className="form-group">
         <label htmlFor="new-imageUrl">Place Image Url here</label>
       <input
-        type="text"
+        type="image"
         className="form-control"
         id="new-imageUrl"
         value={newImageUrl}
@@ -291,6 +300,16 @@ render() {
         id="new-beginningWeight"
         value={newBeginningWeight}
         onChange={this.newBeginningWeight}
+        />
+        </div>
+        <div className="form-group">
+        <label htmlFor="new-beginningPhoto">Place Beginning Photo here</label>
+      <input
+        type="image"
+        className="form-control"
+        id="new-beginningPhoto"
+        value={newBeginningPhoto}
+        onChange={this.newBeginningPhoto}
         />
         </div>
         <div className="form-group">

@@ -15,11 +15,10 @@ class SingleUser extends React.Component {
             <li>Last Name: {user.lastName} </li>
             <li>Email: {user.email} </li>
             <li>Password: {user.password}</li>,
-              <li>Sex: {user.sex}</li>
+            <li>Sex: {user.sex}</li>
             <li>Height: {user.height}</li>
             <li>CurrentWeight:  {user.currentWeight}</li>
             <li>Age: {user.age}</li>
-            <li>ImageUrl:  {user.imageUrl}</li>,
             <li>Birthdate:  {user.birthdate}</li>
             <li>CalorieGoal:  {user.calorieGoal}</li>
             <li>WeightGoal: {user.weightGoal}</li>

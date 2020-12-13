@@ -21,6 +21,8 @@ namespace GettinFit.Models
         public string CalorieGoal {get; set;}
         public string WeightGoal { get; set; }
         public string BeginningWeight { get; set; }
+
+        public string BeginningPhoto { get; set; }
         public string Date { get; set; }
      
     }
