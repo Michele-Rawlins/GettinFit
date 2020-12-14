@@ -49,6 +49,16 @@ namespace GettinFit.Controllers
             return Ok(authenticatedUser);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser(int userId, User user)
+        {
+            var updatedUser = _repo.Update(userId, user);
+
+            return Ok(updatedUser);
+        }
+
+
+
         [HttpPost]
         public IActionResult CreateUser(User user)
         {

@@ -6,29 +6,15 @@ import {
   Card, CardImg, CardText, CardTitle,CardBody, Col, Row
 } from 'reactstrap';
 
+import { Link } from 'react-router-dom';
 class UserProfile extends React.Component {
 
   state = {
     userProfile: [],
-    newProgressPhoto:''
-  }
+      }
 
-  newProgressPhoto = (e) => {
-    e.preventDefault();
-    this.setState({ newProgressPhoto: e.target.value});
-  }
+  
 
-  saveNewProgressPhoto = (e) => {
-    e.preventDefault();
-    const {
-      newProgressPhoto,
-    } = this.state;
-
-  const newProgressPhotoUpload = {
-    progressPhoto: newProgressPhoto,
-  };
-
-}
     componentDidMount() {
     var user = firebase.auth().currentUser;
     let email = '';
@@ -59,6 +45,11 @@ const newProgressPhoto = this.state;
             <p className="profile-line-item"><span className="line-title">Calorie Goal:  </span>{userProfile.calorieGoal} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<span className="line-title">Weight Goal:  </span>{userProfile.weightGoal}</p>
             <p className="profile-line-item"><span className="line-title">Beginning Weight:  </span>{userProfile.beginningWeight}</p>
             <p className="profile-line-item"><span className="line-title">My auto generated SQL userId is:  </span> {userProfile.userId}</p>
+            <div className="form-group">
+              <div className="col-sm-12 text-center">
+                <Link to="users/edit">Update Profile</Link>
+              </div>
+          </div>
           </div>
               
          <hr></hr>
@@ -87,25 +78,17 @@ const newProgressPhoto = this.state;
    
    
       <Col sm="4">
-    <Card className="progressCard">
-          <CardTitle tag="h4">Upload New Photo</CardTitle>
-    
-  <Card label for="progress-Photo">ProgressPhoto</Card>
-  <form className="col-6 offset-3 text-left">
-        <div className="form-group">
-        <label htmlFor="new-progressPhoto">Progress Photo</label>
-  <input  
-        type="image"
-        className="form-control"
-        id="new-progressPhoto"
-        value={newProgressPhoto}
-        onChange={this.newProgressPhoto}
-        />
-   </div>
-   </form>
-   <button className="btn btn-secondary" onClick={this.saveNewProgressPhoto}>Save Progress Photo</button>
+      <Card className="progressCard">
+          <CardTitle tag="h4">Upload a progress photo on your user profile</CardTitle>
+        <CardImg src={userProfile.progressPhoto}/>
+        <CardBody>
+          
+                   
+        </CardBody>
       </Card>
       </Col>
+   
+  
      
          
 </div>
