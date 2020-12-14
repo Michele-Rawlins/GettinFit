@@ -23,6 +23,8 @@ namespace GettinFit.Models
         public string BeginningWeight { get; set; }
 
         public string BeginningPhoto { get; set; }
+
+        public string ProgressPhoto { get; set; }
         public string Date { get; set; }
      
     }

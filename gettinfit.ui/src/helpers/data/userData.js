@@ -15,4 +15,14 @@ const getUserByEmail = (email) => new Promise((resolve, reject) => {
   .catch(reject)
 })
 
-export default {getAllUsers, getUserByEmail};
+const getSingleUser = (userId) => axios.get(`${baseUrl}/users/${userId}`);
+
+const updateUser = (userId, updatedUser) => axios.put(`${baseUrl}/users/${userId}`, updatedUser);
+
+
+export default {
+  getAllUsers, 
+  getUserByEmail,
+  getSingleUser,
+  updateUser,
+};
