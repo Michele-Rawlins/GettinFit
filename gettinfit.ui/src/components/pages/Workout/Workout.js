@@ -27,6 +27,7 @@ class Workout extends React.Component {
     newDate: '',
     // uid: 0,
     dropdownOpen: false,
+    userProfile: [],
      }
 
   newExerciseName = (e) => {
