@@ -177,7 +177,7 @@ const updatedUser = {
     beginningPhoto: newBeginningPhoto,
   progressPhoto: this.newProgressPhoto,
     date:  newDate,
-     // uid: authData.getUid(),
+     uid: userData.getSingleUser(),
 
 };
 

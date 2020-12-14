@@ -30,7 +30,7 @@ class UserProfile extends React.Component {
 
 render() {
 const {userProfile} = this.state;
-const newProgressPhoto = this.state;
+
   return(
     <div className="UserProfile col-md-12">
       <h2>{`${userProfile.firstName} ${userProfile.lastName}'s Profile`}</h2>
