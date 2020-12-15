@@ -68,7 +68,7 @@ namespace GettinFit.Data
 
         public User Update(int userId, User user)
         {
-            var sql = @" UPDATE [dbo].[Users]
+            var sql = @"UPDATE Users
                              SET [FirstName] = @FirstName
                                ,[LastName] = @LastName
                                ,[Email] = @Email
@@ -81,11 +81,11 @@ namespace GettinFit.Data
                                 ,[CalorieGoal] = @CalorieGoal
                                 ,[WeightGoal] = @WeightGoal
                                ,[BeginningWeight] = @BeginningWeight
-                                ,[BeginningPhoto] = BeginningPhoto
+                                ,[BeginningPhoto] = @BeginningPhoto
                                 ,[ProgressPhoto] = @ProgressPhoto
-                                ,[Date] = @Date)
+                                ,[Date] = @Date
                             output inserted.*
-                    Where userId = @uid";
+                    WHERE UserId = @uid";
             using var db = new SqlConnection(_connectionString);
 
             var parameters = new
@@ -104,6 +104,9 @@ namespace GettinFit.Data
                 user.BeginningWeight,
                 user.BeginningPhoto,
                 user.ProgressPhoto,
+                user.Date,
+                uid = userId
+                
                
             };
 
