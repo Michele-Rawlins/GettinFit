@@ -49,10 +49,10 @@ namespace GettinFit.Controllers
             return Ok(authenticatedUser);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateUser(int userId, User user)
+        [HttpPut("{UserId}")]
+        public IActionResult UpdateUser(int UserId, User user)
         {
-            var updatedUser = _repo.Update(userId, user);
+            var updatedUser = _repo.Update(UserId, user);
 
             return Ok(updatedUser);
         }

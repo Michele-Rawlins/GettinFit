@@ -255,7 +255,7 @@ render() {
         <div className="form-group">
         <label htmlFor="new-imageUrl">Place Image Url here</label>
       <input
-        type="image"
+        type="text"
         className="form-control"
         id="new-imageUrl"
         value={newImageUrl}
@@ -305,7 +305,7 @@ render() {
         <div className="form-group">
         <label htmlFor="new-beginningPhoto">Place Beginning Photo here</label>
       <input
-        type="image"
+        type="text"
         className="form-control"
         id="new-beginningPhoto"
         value={newBeginningPhoto}
