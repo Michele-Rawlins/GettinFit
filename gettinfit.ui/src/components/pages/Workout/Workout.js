@@ -214,18 +214,22 @@ console.log(newWorkout);
      
      <Card Container ="d-flex justify-content-start">
       <Row>
-      <Col sm="4">
+      <Col md="8">
       <Card className="p-2 col-example text-left workoutCard">
           <CardTitle tag="h4">Last Weeks Total</CardTitle>
         <CardImg  src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
           
           <CardText>Here are your totals from last week</CardText>
+          <CardText>Monday:  Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Tuesday: Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Wednesday: Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Thursday:  Calories Burned:   Weight Lifted: </CardText>
+          <CardText>Friday:  Calories Burned:   Weight Lifted: </CardText>
+          <CardText>Saturday:  Calories Burned:   Weight Lifted: </CardText>
+          <CardText>Sunday:  Calories Burned:   Weight Lifted: </CardText>
           
-          <CardText>Calories Burned:{`${userWorkout.calories}`}</CardText>
-          <CardText>Weight Lifted:{`${userWorkout.weight}`}</CardText>
-          
-        </CardBody>
+          </CardBody>
       </Card>
     
     
