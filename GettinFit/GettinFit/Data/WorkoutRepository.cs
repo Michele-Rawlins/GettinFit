@@ -79,7 +79,7 @@ namespace GettinFit.Data
             
         }
 
-        public Workout GetUserWorkout(int userId)
+        public List <Workout> GetUserWorkouts(int userId)
         {
             using var db = new SqlConnection(_connectionString);
 
@@ -89,9 +89,9 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var workout = db.QueryFirstOrDefault<Workout>(query, parameters);
+            var workoutByUser = db.Query<Workout>(query, parameters);
 
-            return workout;
+            return workoutByUser.ToList();
         }
 
 

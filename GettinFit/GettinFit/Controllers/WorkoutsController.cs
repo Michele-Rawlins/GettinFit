@@ -40,9 +40,9 @@ namespace GettinFit.Controllers
 
 
         [HttpGet("user/{userId}")]
-        public IActionResult GetUserWorkout(int userId)
+        public IActionResult GetUserWorkouts(int userId)
         {
-            var userWorkout = _repo.GetUserWorkout(userId);
+            var userWorkout = _repo.GetUserWorkouts(userId);
 
             if (userWorkout == null) return NoContent();
 
