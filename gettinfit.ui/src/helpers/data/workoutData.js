@@ -5,7 +5,7 @@ import {baseUrl} from '../data/constants.json';
 
 
 
-const GetUserWorkout = (userId) => new Promise((resolve, reject) => {
+const GetUserWorkouts = (userId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/workouts/user/${userId}`)
     .then(response => {
       if (response.data !== "") {
@@ -20,6 +20,6 @@ const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout)
 // const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
 
 export default {
-  GetUserWorkout,
+  GetUserWorkouts,
   addWorkout
 }

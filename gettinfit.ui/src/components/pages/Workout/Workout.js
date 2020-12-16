@@ -1,8 +1,9 @@
 import React from 'react';
 import workoutData from '../../../helpers/data/workoutData';
 import workoutShape from '../../../helpers/propz/workoutShape';
-
+import firebase from 'firebase'
 import authData from '../../../../src/helpers/data/authData';
+import userData from '../../../../src/helpers/data/userData';
 
 import {
   Dropdown,
@@ -27,8 +28,25 @@ class Workout extends React.Component {
     newDate: '',
     // uid: 0,
     dropdownOpen: false,
-    userProfile: [],
+    userWorkout: [],
+    userProfile:[],
      }
+
+     componentDidMount() {
+      var user = firebase.auth().currentUser;
+      let email = '';
+      let userId = '';
+      
+      
+      if (user != null) {
+        email = user.email;
+        userId = user.userId;
+      }
+      userData.getUserByEmail(email)
+      .then(userProfile => { this.setState({userProfile}) })
+      workoutData.GetUserWorkouts(userId)
+      .then(userWorkout => { this.setState({userWorkout}) })
+    }
 
   newExerciseName = (e) => {
     e.preventDefault();
@@ -84,7 +102,7 @@ const newWorkout = {
     bodyPart:  newBodyPart,
     caloriesBurned:  newCaloriesBurned,
     Date: newDate
-    // uid: authData.getUid(),
+    //uid: authData.getUid(),
 
 };
 
@@ -103,6 +121,8 @@ console.log(newWorkout);
         newBodyPart,
         newCaloriesBurned,
         newDate,
+        userWorkout,
+        userProfile,
           } = this.state;
    
     
@@ -112,7 +132,7 @@ console.log(newWorkout);
 
    <div className="Workout container">
      <div className="New col-12">
-      <h1>Welcome to Your Workout Page</h1>
+      <h1>Welcome to {`${userProfile.firstName} ${userProfile.lastName}'s `} Workout Page</h1>
       <form className="col-6 offset-3 text-left">
         <div className="form-group">
         <label htmlFor="new-exercise-name">Exercise Name</label>
@@ -192,22 +212,28 @@ console.log(newWorkout);
         <button className="btn btn-secondary" onClick={this.saveNewWorkout}>Save New Workout</button>
       </form>
      
+     <Card Container ="d-flex justify-content-start">
       <Row>
-      <Col sm="4">
-      <Card className="workoutCard">
+      <Col md="8">
+      <Card className="p-2 col-example text-left workoutCard">
           <CardTitle tag="h4">Last Weeks Total</CardTitle>
         <CardImg  src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
           
           <CardText>Here are your totals from last week</CardText>
-          <CardText>Calories Burned:</CardText>
-          <CardText>Weight Lifted:</CardText>
+          <CardText>Monday:  Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Tuesday: Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Wednesday: Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Thursday:  Calories Burned:   Weight Lifted: </CardText>
+          <CardText>Friday:  Calories Burned:   Weight Lifted: </CardText>
+          <CardText>Saturday:  Calories Burned:   Weight Lifted: </CardText>
+          <CardText>Sunday:  Calories Burned:   Weight Lifted: </CardText>
           
-        </CardBody>
+          </CardBody>
       </Card>
     
     
-    <Card className="workoutCard">
+    <Card className="p-2 col-example text-center workoutCard">
           <CardTitle tag="h4">This Months Total</CardTitle>
         <CardImg src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29ya291dHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
@@ -232,6 +258,7 @@ console.log(newWorkout);
       </Card>
       </Col>
       </Row>
+      </Card>
     
        </div>
        </div>   

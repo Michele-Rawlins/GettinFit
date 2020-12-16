@@ -1,9 +1,9 @@
 import React from 'react';
 import mealData from '../../../helpers/data/mealData';
 import mealShape from '../../../helpers/propz/mealShape';
-
+import userData from '../../../helpers/data/userData';
 import authData from '../../../../src/helpers/data/authData';
-
+import firebase from 'firebase'
 
 
 import {
@@ -16,9 +16,20 @@ class Meal extends React.Component {
     newCalorieCount: '',
     newWhichMeal: '',
     newDate: '',
+    userProfile: [],
     // uid: 0,
      }
 
+     componentDidMount() {
+      var user = firebase.auth().currentUser;
+      let email = '';
+      
+      if (user != null) {
+        email = user.email;
+      }
+      userData.getUserByEmail(email)
+      .then(userProfile => { this.setState({userProfile}) })
+    }
   newFoodDescription = (e) => {
     e.preventDefault();
     this.setState({ newFoodDescription: e.target.value});
@@ -70,6 +81,7 @@ console.log(newMeal);
         newCalorieCount,
         newWhichMeal,
         newDate,
+        userProfile
           } = this.state;
    
     
@@ -79,7 +91,7 @@ console.log(newMeal);
 
    <div className="Meal container">
      <div className="New col-12">
-      <h1>Welcome to Your Meal Page</h1>
+      <h1>Welcome to {`${userProfile.firstName}'s`} Meal Page</h1>
       <form className="col-6 offset-3 text-left">
         <div className="form-group">
         <label htmlFor="new-food-description">Food Description</label>
