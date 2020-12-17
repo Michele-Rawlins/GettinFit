@@ -30,35 +30,52 @@ class Workout extends React.Component {
     dropdownOpen: false,
     userWorkout: [],
     userProfile:[],
+    mondayCalorie: [],
+    user: [],
      }
 
+     getUser = () => {
+      const user = firebase.auth().currentUser;
+      console.log('current user:', user.email);
+      const userEmail = user.email;
+      
+      userData.getUserByEmail(userEmail)
+      .then((user) => this.setState({ user }))
+  }
      componentDidMount() {
+       this.getUser();
       var user = firebase.auth().currentUser;
       let email = '';
-      let userId = '';
+     let userProfile = '';
       
       
       if (user != null) {
         email = user.email;
-        userId = user.userId;
+      
       }
+     var user = userData.getUserByEmail(email);
+     var userId = userProfile.userId
+console.log(user)
       userData.getUserByEmail(email)
       .then(userProfile => { this.setState({userProfile}) })
-      workoutData.GetUserWorkouts(userId)
+      workoutData.GetUserWorkouts(userProfile.userId)
       .then(userWorkout => { this.setState({userWorkout}) })
+      console.log(user)
+      workoutData.getMondayCaloriesBurned(userProfile.userId)
+     .then(mondayCalorie => { this.setState({mondayCalorie})})
+
     }
-
-  newExerciseName = (e) => {
-    e.preventDefault();
-    this.setState({ newExerciseName: e.target.value});
-  }
-
-  newReps = (e) => {
-    e.preventDefault();
-    this.setState({ newReps: e.target.value});
-  }
-
-  newSets = (e) => {
+    newExerciseName = (e) => {
+      e.preventDefault();
+      this.setState({ newExerciseName: e.target.value});
+    }
+    
+    newReps = (e) => {
+      e.preventDefault();
+      this.setState({ newReps: e.target.value});
+    }
+    
+    newSets = (e) => {
     e.preventDefault();
     this.setState({ newSets: e.target.value});
   }
@@ -71,17 +88,17 @@ class Workout extends React.Component {
     e.preventDefault();
     this.setState({ newWeight: e.target.value});
   }
-
+  
   newBodyPart = (e) => {
     e.preventDefault();
     this.setState({ newBodyPart: e.target.value});
   }
-
+  
   newCaloriesBurned = (e) => {
     e.preventDefault();
     this.setState({ newCaloriesBurned: e.target.value});
   }
-
+  
   saveNewWorkout = (e) => {
     e.preventDefault();
     const {
@@ -93,44 +110,47 @@ class Workout extends React.Component {
       newCaloriesBurned,
       newDate,
     } = this.state;
-
-const newWorkout = {
-    exerciseName: newExerciseName,
-    reps: newReps,
-    sets:  newSets,
-    weight:  newWeight,
-    bodyPart:  newBodyPart,
-    caloriesBurned:  newCaloriesBurned,
-    Date: newDate
-    //uid: authData.getUid(),
-
-};
-
-console.log(newWorkout);
- workoutData.addWorkout(newWorkout)
- .then(() => this.props.history.push('/workouts'))
- .catch((err) => console.error('unable to add new Workout'))
-}
-
+    
+    const newWorkout = {
+      exerciseName: newExerciseName,
+      reps: newReps,
+      sets:  newSets,
+      weight:  newWeight,
+      bodyPart:  newBodyPart,
+      caloriesBurned:  newCaloriesBurned,
+      Date: newDate
+      //uid: authData.getUid(),
+      
+    };
+    
+    
+    workoutData.addWorkout(newWorkout)
+    .then(() => this.props.history.push('/workouts'))
+    .catch((err) => console.error('unable to add new Workout'))
+  }
+  
   render() {
+    const {user} = this.props;
+    console.log(this.state.userProfile)
     const {
-        newExerciseName,
-        newReps,
-        newSets,
-        newWeight,
+      newExerciseName,
+      newReps,
+      newSets,
+      newWeight,
         newBodyPart,
         newCaloriesBurned,
         newDate,
         userWorkout,
         userProfile,
+        mondayCalorie,
+        
           } = this.state;
    
     
 
-    return (
+        return (
      
-
-   <div className="Workout container">
+      <div className="Workout container">
      <div className="New col-12">
       <h1>Welcome to {`${userProfile.firstName} ${userProfile.lastName}'s `} Workout Page</h1>
       <form className="col-6 offset-3 text-left">
@@ -221,7 +241,7 @@ console.log(newWorkout);
         <CardBody>
           
           <CardText>Here are your totals from last week</CardText>
-          <CardText>Monday:  Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Monday:  Calories Burned: {mondayCalorie.CaloriesBurned} Weight Lifted:  </CardText>
           <CardText>Tuesday: Calories Burned:   Weight Lifted:  </CardText>
           <CardText>Wednesday: Calories Burned:   Weight Lifted:  </CardText>
           <CardText>Thursday:  Calories Burned:   Weight Lifted: </CardText>

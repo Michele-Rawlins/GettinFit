@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GettinFit.Controllers
 {
-    [Route("api/workouts")]
+    
+
+        [Route("api/workouts")]
     [ApiController]
     public class WorkoutsController : ControllerBase
     {
@@ -39,10 +41,10 @@ namespace GettinFit.Controllers
         }
 
 
-        [HttpGet("user/{userId}")]
-        public IActionResult GetUserWorkouts(int userId)
+        [HttpGet("user/{UserId}")]
+        public IActionResult GetUserWorkouts(int UserId)
         {
-            var userWorkout = _repo.GetUserWorkouts(userId);
+            var userWorkout = _repo.GetUserWorkouts(UserId);
 
             if (userWorkout == null) return NoContent();
 
@@ -51,15 +53,25 @@ namespace GettinFit.Controllers
         }
 
 
-        //[HttpPost]
-        //public IActionResult CreateNewWorkout(Workout workout)
-        //{
-        //    _repo.CreateNewWorkout(workout);
+        [HttpGet("mondayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetMondayWorkoutCaloriesBurned(int UserId)
+        {
+            var MondayCaloriesBurned = _repo.GetMondayWorkoutCaloriesBurned(UserId);
 
-        //    return Created($"/api/workouts/{workout.WorkoutId}", workout);
-        //}
+            if (MondayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
 
-        [HttpPost]
+            return Ok(MondayCaloriesBurned);
+        }
+
+            //[HttpPost]
+            //public IActionResult CreateNewWorkout(Workout workout)
+            //{
+            //    _repo.CreateNewWorkout(workout);
+
+            //    return Created($"/api/workouts/{workout.WorkoutId}", workout);
+            //}
+
+            [HttpPost]
         public IActionResult CreateNewWorkout(Workout workout)
         {
             

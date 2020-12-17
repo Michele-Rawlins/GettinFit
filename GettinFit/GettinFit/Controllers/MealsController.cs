@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GettinFit.Controllers
 {
-    [Route("api/meals")]
+
+       
+        [Route("api/meals")]
     [ApiController]
     public class MealsController : ControllerBase
     {

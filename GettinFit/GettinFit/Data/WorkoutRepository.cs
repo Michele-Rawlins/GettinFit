@@ -94,6 +94,27 @@ namespace GettinFit.Data
             return workoutByUser.ToList();
         }
 
+        public List <Workout> GetMondayWorkoutCaloriesBurned(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT CaloriesBurned 
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -8, getdate()))and (select dateadd(day, -7, getdate()))";
+                       
+
+            var parameters = new { uid = userId };
+
+            var MondayCaloriesBurned = db.Query<Workout>(query, parameters);
+
+            return MondayCaloriesBurned.ToList();
+
+
+
+        }
+
+
 
     }
 }
