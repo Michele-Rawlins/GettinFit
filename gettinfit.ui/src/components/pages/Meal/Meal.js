@@ -12,23 +12,104 @@ import {
 
 class Meal extends React.Component {
   state = {
+    user: '',
     newFoodDescription: '',
     newCalorieCount: '',
     newWhichMeal: '',
     newDate: '',
     userProfile: [],
+    userMeal:[],
+    mondayCalorie:0,
+    tuesdayCalorie:0,
+    wednesdayCalorie:0,
+    thursdayCalorie:0,
+    fridayCalorie:0,
+    saturdayCalorie:0,
+    sundayCalorie:0,
+    lastMonthCalorie: 0,
+    thisMonthCalorie: 0,
     // uid: 0,
      }
 
      componentDidMount() {
       var user = firebase.auth().currentUser;
-      let email = '';
+      let email = user.email;
       
-      if (user != null) {
-        email = user.email;
-      }
+      // if (user != null) {
+      //   email = user.email;
+      // }
       userData.getUserByEmail(email)
       .then(userProfile => { this.setState({userProfile}) })
+      .then(() => this.getMealData())
+      .then(() => this.getMondayData())
+      .then(() => this.getTuesdayData())
+      .then(() => this.getWednesdayData())
+      .then(() => this.getThursdayData())
+      .then(() => this.getFridayData())
+      .then(() => this.getSaturdayData())
+      .then(() => this.getSundayData())
+      .then(() => this.getLastMonthCalorie())
+      .then(() => this.getThisMonthCalorie())
+    }
+
+    getMealData = () => {
+    const { userProfile } = this.state;
+    mealData.GetUserMeal(userProfile.userId)
+    .then(userMeal => { this.setState({userMeal}) })
+   }
+    getMondayData = () => {
+      const { userProfile } = this.state;
+      mealData.getMondayCalorieCount(userProfile.userId)
+    .then(mondayCalorie => { this.setState({mondayCalorie})
+    console.log(mondayCalorie)})
+    }
+
+    getTuesdayData = () => {
+      const { userProfile } = this.state;
+      mealData.getTuesdayCalorieCount(userProfile.userId)
+    .then(tuesdayCalorie => { this.setState({tuesdayCalorie})})
+    }
+
+    getWednesdayData = () => {
+      const { userProfile } = this.state;
+      mealData.getWednesdayCalorieCount(userProfile.userId)
+    .then(wednesdayCalorie => { this.setState({wednesdayCalorie})})
+    }
+
+    getThursdayData = () => {
+      const { userProfile } = this.state;
+      mealData.getThursdayCalorieCount(userProfile.userId)
+    .then(thursdayCalorie => { this.setState({thursdayCalorie})})
+    }
+
+    getFridayData = () => {
+      const { userProfile } = this.state;
+      mealData.getFridayCalorieCount(userProfile.userId)
+    .then(fridayCalorie => { this.setState({fridayCalorie})})
+    }
+
+    getSaturdayData = () => {
+      const { userProfile } = this.state;
+      mealData.getSaturdayCalorieCount(userProfile.userId)
+    .then(saturdayCalorie => { this.setState({saturdayCalorie})})
+    }
+
+    getSundayData = () => {
+      const { userProfile } = this.state;
+      mealData.getSundayCalorieCount(userProfile.userId)
+    .then(sundayCalorie => { this.setState({sundayCalorie})})
+    }
+
+    getLastMonthCalorie = () => {
+      const { userProfile } = this.state;
+      mealData.getLastMonthsCalorieCount(userProfile.userId)
+    .then(lastMonthCalorie => { this.setState({lastMonthCalorie})})
+    }
+
+    getThisMonthCalorie = () => {
+      const { userProfile } = this.state;
+      mealData.getThisMonthsCalorieCount(userProfile.userId)
+    .then(thisMonthCalorie => { this.setState({thisMonthCalorie})})
     }
   newFoodDescription = (e) => {
     e.preventDefault();
@@ -81,7 +162,16 @@ console.log(newMeal);
         newCalorieCount,
         newWhichMeal,
         newDate,
-        userProfile
+        userProfile,
+        mondayCalorie,
+        tuesdayCalorie,
+        wednesdayCalorie,
+        thursdayCalorie,
+        fridayCalorie,
+        saturdayCalorie,
+        sundayCalorie,
+        lastMonthCalorie,
+        thisMonthCalorie
           } = this.state;
    
     
@@ -149,7 +239,15 @@ console.log(newMeal);
         <CardBody>
           
           <CardText>Here are your totals from last week</CardText>
-          <CardText>Calories Consumed:</CardText>
+          <CardText>Monday:  Calories Consumed:{`${mondayCalorie}`}   </CardText>
+          
+          <CardText>Tuesday: Calories Consumed: {`${tuesdayCalorie}`}  </CardText>
+          <CardText>Wednesday: Calories Consumed:{`${wednesdayCalorie}`} </CardText>
+          <CardText>Thursday:  Calories Consumed: {`${thursdayCalorie}`} </CardText>
+          <CardText>Friday:  Calories Consumed: {`${fridayCalorie}`}   </CardText>
+          <CardText>Saturday:  Calories Consumed: {`${saturdayCalorie}`}</CardText>
+          <CardText>Sunday:  Calories Consumed: {`${sundayCalorie}`}  </CardText> 
+          
                     
         </CardBody>
       </Card>
@@ -161,7 +259,7 @@ console.log(newMeal);
         <CardBody>
         
           <CardText>Here are this Month's Totals</CardText>
-          <CardText>Calories Consumed:</CardText>
+          <CardText>Calories Consumed:{`${thisMonthCalorie}`}</CardText>
         
         </CardBody>
       </Card>
@@ -174,7 +272,7 @@ console.log(newMeal);
         <CardBody>
           
           <CardText>Here are Last Months Totals</CardText>
-          <CardText>Calories Consumed:</CardText>
+          <CardText>Calories Consumed:{`${lastMonthCalorie}`}</CardText>
          
         </CardBody>
       </Card>
