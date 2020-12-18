@@ -61,6 +61,20 @@ const getSundayCaloriesBurned = (UserId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getLastMonthsCaloriesBurned = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/lastMonthsCaloriesBurned/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getThisMonthsCaloriesBurned = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/thisMonthsCaloriesBurned/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
 
 const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
 // const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
@@ -74,6 +88,8 @@ export default {
   getThursdayCaloriesBurned,
   getFridayCaloriesBurned,
   getSaturdayCaloriesBurned,
-  getSundayCaloriesBurned
+  getSundayCaloriesBurned,
+  getLastMonthsCaloriesBurned,
+  getThisMonthsCaloriesBurned
 
 }
