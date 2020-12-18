@@ -55,7 +55,7 @@ namespace GettinFit.Controllers
         {
             var MondayCaloriesBurned = _repo.GetMondayWorkoutCaloriesBurned(UserId);
 
-            if (MondayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+            if (MondayCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
 
             return Ok(MondayCaloriesBurned);
         }
@@ -65,7 +65,7 @@ namespace GettinFit.Controllers
         {
             var TuesdayCaloriesBurned = _repo.GetTuesdayWorkoutCaloriesBurned(UserId);
 
-            if (TuesdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+            if (TuesdayCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
 
             return Ok(TuesdayCaloriesBurned);
         }
@@ -75,7 +75,7 @@ namespace GettinFit.Controllers
         {
             var WednesdayCaloriesBurned = _repo.GetWednesdayWorkoutCaloriesBurned(UserId);
 
-            if (WednesdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+            if (WednesdayCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
 
             return Ok(WednesdayCaloriesBurned);
         }
@@ -85,7 +85,7 @@ namespace GettinFit.Controllers
         {
             var ThursdayCaloriesBurned = _repo.GetThursdayWorkoutCaloriesBurned(UserId);
 
-            if (ThursdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+            if (ThursdayCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
 
             return Ok(ThursdayCaloriesBurned);
         }
@@ -95,7 +95,7 @@ namespace GettinFit.Controllers
         {
             var FridayCaloriesBurned = _repo.GetFridayWorkoutCaloriesBurned(UserId);
 
-            if (FridayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+            if (FridayCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
 
             return Ok(FridayCaloriesBurned);
         }
@@ -105,7 +105,7 @@ namespace GettinFit.Controllers
         {
             var SaturdayCaloriesBurned = _repo.GetSaturdayWorkoutCaloriesBurned(UserId);
 
-            if (SaturdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+            if (SaturdayCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
 
             return Ok(SaturdayCaloriesBurned);
         }
@@ -115,9 +115,29 @@ namespace GettinFit.Controllers
         {
             var SundayCaloriesBurned = _repo.GetSundayWorkoutCaloriesBurned(UserId);
 
-            if (SundayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+            if (SundayCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
 
             return Ok(SundayCaloriesBurned);
+        }
+
+        [HttpGet("lastMonthsCaloriesBurned/{UserId}")]
+        public IActionResult GetLastMonthsCaloriesBurned(int UserId)
+        {
+            var LastMonthsCaloriesBurned = _repo.GetLastMonthsCaloriesBurned(UserId);
+
+            if (LastMonthsCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(LastMonthsCaloriesBurned);
+        }
+
+        [HttpGet("thisMonthsCaloriesBurned/{UserId}")]
+        public IActionResult GetThisMonthsCaloriesBurned(int UserId)
+        {
+            var ThisMonthsCaloriesBurned = _repo.GetThisMonthsCaloriesBurned(UserId);
+
+            if (ThisMonthsCaloriesBurned == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(ThisMonthsCaloriesBurned);
         }
 
 

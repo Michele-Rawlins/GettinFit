@@ -87,9 +87,29 @@ const {userProfile} = this.state;
         </CardBody>
       </Card>
       </Col>
-   
+      <hr></hr>
+      <div className="meals-container">
+      <CardText>Here are your totals from last week</CardText>
+          <CardText>Monday:  Calories Consumed: </CardText>
+          <CardText>Tuesday: Calories Consumed:  </CardText>
+          <CardText>Wednesday: Calories Consumed: </CardText>
+          <CardText>Thursday:  Calories Consumed:  </CardText>
+          <CardText>Friday:  Calories Consumed:    </CardText>
+          <CardText>Saturday:  Calories Consumed: </CardText>
+          <CardText>Sunday:  Calories Consumed:  </CardText> 
+          </div>
+      <hr></hr>
+      <div className="workout-container">
+      <CardText>Here are your totals from last week</CardText>
+          <CardText>Monday:  Calories Burned: </CardText>
+          <CardText>Tuesday: Calories Burned:  </CardText>
+          <CardText>Wednesday: Calories Burned: </CardText>
+          <CardText>Thursday:  Calories Burned:  </CardText>
+          <CardText>Friday:  Calories Burned:    </CardText>
+          <CardText>Saturday:  Calories Burned: </CardText>
+          <CardText>Sunday:  Calories Burned:  </CardText> 
   
-     
+          </div> 
          
 </div>
 </div>
