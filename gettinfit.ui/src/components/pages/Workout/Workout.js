@@ -31,11 +31,17 @@ class Workout extends React.Component {
     userWorkout: [],
     userProfile: [],
     mondayCalorie:[],
+    tuesdayCalorie:[],
+    wednesdayCalorie:[],
+    thursdayCalorie:[],
+    fridayCalorie:[],
+    saturdayCalorie:[],
+    sundayCalorie:[],
      }
 
      componentDidMount() {
       var user = firebase.auth().currentUser;
-      let email = user.email;
+      const email = user.email;
       
       // if (user != null) {
       //   email = user.email;
@@ -44,6 +50,14 @@ class Workout extends React.Component {
       .then(userProfile => { this.setState({userProfile}) })
       .then(() => this.getWorkoutData())
       .then(() => this.getMondayData())
+      .then(() => this.getTuesdayData())
+      .then(() => this.getWednesdayData())
+      .then(() => this.getThursdayData())
+      .then(() => this.getFridayData())
+      .then(() => this.getSaturdayData())
+      .then(() => this.getSundayData())
+      
+
     
       // .then(() => this.addWorkoutData())
     }
@@ -56,14 +70,45 @@ class Workout extends React.Component {
 
     getMondayData = () => {
       const { userProfile } = this.state;
-      let mondayCalorie = '';
-    workoutData.getMondayCaloriesBurned(userProfile.userId)
+      workoutData.getMondayCaloriesBurned(userProfile.userId)
     .then(mondayCalorie => { this.setState([mondayCalorie])})
-    
-
     }
 
-    
+    getTuesdayData = () => {
+      const { userProfile } = this.state;
+      workoutData.getTuesdayCaloriesBurned(userProfile.userId)
+    .then(tuesdayCalorie => { this.setState([tuesdayCalorie])})
+    }
+
+    getWednesdayData = () => {
+      const { userProfile } = this.state;
+      workoutData.getWednesdayCaloriesBurned(userProfile.userId)
+    .then(wednesdayCalorie => { this.setState([wednesdayCalorie])})
+    }
+
+    getThursdayData = () => {
+      const { userProfile } = this.state;
+      workoutData.getThursdayCaloriesBurned(userProfile.userId)
+    .then(thursdayCalorie => { this.setState([thursdayCalorie])})
+    }
+
+    getFridayData = () => {
+      const { userProfile } = this.state;
+      workoutData.getFridayCaloriesBurned(userProfile.userId)
+    .then(fridayCalorie => { this.setState([fridayCalorie])})
+    }
+
+    getSaturdayData = () => {
+      const { userProfile } = this.state;
+      workoutData.getSaturdayCaloriesBurned(userProfile.userId)
+    .then(saturdayCalorie => { this.setState([saturdayCalorie])})
+    }
+
+    getSundayData = () => {
+      const { userProfile } = this.state;
+      workoutData.getSundayCaloriesBurned(userProfile.userId)
+    .then(sundayCalorie => { this.setState([sundayCalorie])})
+    }
 //  addWorkoutData = () => {
 //    const {userProfile} = this.state;
 //    const newWorkout = '';
@@ -151,6 +196,12 @@ console.log(newWorkout);
         userWorkout,
         userProfile,
         mondayCalorie,
+        tuesdayCalorie,
+        wednesdayCalorie,
+        thursdayCalorie,
+        fridayCalorie,
+        saturdayCalorie,
+        sundayCalorie,
         caloriesBurned
           } = this.state;
    
@@ -250,13 +301,13 @@ console.log(newWorkout);
         <CardBody>
           
           <CardText>Here are your totals from last week</CardText>
-          <CardText>Monday:  Calories Burned:{`${mondayCalorie.caloriesBurned}`}   Weight Lifted:  </CardText>
-          <CardText>Tuesday: Calories Burned:   Weight Lifted:  </CardText>
-          <CardText>Wednesday: Calories Burned:   Weight Lifted:  </CardText>
-          <CardText>Thursday:  Calories Burned:   Weight Lifted: </CardText>
-          <CardText>Friday:  Calories Burned:   Weight Lifted: </CardText>
-          <CardText>Saturday:  Calories Burned:   Weight Lifted: </CardText>
-          <CardText>Sunday:  Calories Burned:   Weight Lifted: </CardText>
+          <CardText>Monday:  Calories Burned:{`${mondayCalorie.caloriesBurned}`}   </CardText>
+          <CardText>Tuesday: Calories Burned: {`${tuesdayCalorie.caloriesBurned}`}  </CardText>
+          <CardText>Wednesday: Calories Burned:{`${wednesdayCalorie.caloriesBurned}`} </CardText>
+          <CardText>Thursday:  Calories Burned: {`${thursdayCalorie.caloriesBurned}`} </CardText>
+          <CardText>Friday:  Calories Burned: {`${fridayCalorie.caloriesBurned}`}   </CardText>
+          <CardText>Saturday:  Calories Burned: {`${saturdayCalorie.caloriesBurned}`}</CardText>
+          <CardText>Sunday:  Calories Burned: {`${sundayCalorie.caloriesBurned}`}  </CardText> 
           
           </CardBody>
       </Card>
@@ -268,8 +319,8 @@ console.log(newWorkout);
         <CardBody>
         
           <CardText>Here are this Month's Totals</CardText>
-          <CardText>Calories Burned:</CardText>
-          <CardText>Weight Lifted:</CardText>
+          <CardText>Calories Burned: </CardText>
+          
         </CardBody>
       </Card>
    
@@ -282,8 +333,7 @@ console.log(newWorkout);
           
           <CardText>Here are Last Months Totals</CardText>
           <CardText>Calories Burned:</CardText>
-          <CardText>Weight Lifted:</CardText>
-        </CardBody>
+         </CardBody>
       </Card>
       </Col>
       </Row>
