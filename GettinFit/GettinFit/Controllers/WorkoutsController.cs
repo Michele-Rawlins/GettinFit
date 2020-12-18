@@ -39,15 +39,85 @@ namespace GettinFit.Controllers
         }
 
 
-        [HttpGet("user/{userId}")]
-        public IActionResult GetUserWorkouts(int userId)
+        [HttpGet("user/{UserId}")]
+        public IActionResult GetUserWorkouts(int UserId)
         {
-            var userWorkout = _repo.GetUserWorkouts(userId);
+            var userWorkout = _repo.GetUserWorkouts(UserId);
 
             if (userWorkout == null) return NoContent();
 
             return Ok(userWorkout);
 
+        }
+
+        [HttpGet("mondayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetMondayWorkoutCaloriesBurned(int UserId)
+        {
+            var MondayCaloriesBurned = _repo.GetMondayWorkoutCaloriesBurned(UserId);
+
+            if (MondayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(MondayCaloriesBurned);
+        }
+
+        [HttpGet("tuesdayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetTuesdayWorkoutCaloriesBurned(int UserId)
+        {
+            var TuesdayCaloriesBurned = _repo.GetTuesdayWorkoutCaloriesBurned(UserId);
+
+            if (TuesdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(TuesdayCaloriesBurned);
+        }
+
+        [HttpGet("wednesdayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetWednesdayWorkoutCaloriesBurned(int UserId)
+        {
+            var WednesdayCaloriesBurned = _repo.GetWednesdayWorkoutCaloriesBurned(UserId);
+
+            if (WednesdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(WednesdayCaloriesBurned);
+        }
+
+        [HttpGet("thursdayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetThursdayWorkoutCaloriesBurned(int UserId)
+        {
+            var ThursdayCaloriesBurned = _repo.GetThursdayWorkoutCaloriesBurned(UserId);
+
+            if (ThursdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(ThursdayCaloriesBurned);
+        }
+
+        [HttpGet("fridayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetFridayWorkoutCaloriesBurned(int UserId)
+        {
+            var FridayCaloriesBurned = _repo.GetFridayWorkoutCaloriesBurned(UserId);
+
+            if (FridayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(FridayCaloriesBurned);
+        }
+
+        [HttpGet("saturdayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetSaturdayWorkoutCaloriesBurned(int UserId)
+        {
+            var SaturdayCaloriesBurned = _repo.GetSaturdayWorkoutCaloriesBurned(UserId);
+
+            if (SaturdayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(SaturdayCaloriesBurned);
+        }
+
+        [HttpGet("sundayWorkoutCaloriesBurned/{UserId}")]
+        public IActionResult GetSundayWorkoutCaloriesBurned(int UserId)
+        {
+            var SundayCaloriesBurned = _repo.GetSundayWorkoutCaloriesBurned(UserId);
+
+            if (SundayCaloriesBurned == null) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(SundayCaloriesBurned);
         }
 
 
