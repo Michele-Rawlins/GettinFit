@@ -5,7 +5,7 @@ import './App.scss';
 import 'firebase/auth';
 import firebase from 'firebase/app';
 
-import Workout from '../components/pages/Workout/Workout';
+
 
 import {
   BrowserRouter,
@@ -23,6 +23,7 @@ import SingleUser from '../components/shared/SingleUser/SingleUser';
 import Meal from '../components/pages/Meal/Meal';
 import UserProfile from '../components/pages/UserProfile/UserProfile';
 import EditUser from '../components/pages/EditUser/EditUser';
+import Workout from '../components/pages/Workout/Workout';
 
 fbConnection();
 
@@ -76,8 +77,7 @@ class App extends React.Component {
                <Route path='/users/new' component={NewUser} authed={authed} />
                <Route path='/users/edit' component={EditUser} authed={authed} />
                <Route path='/users/:usersId' component={SingleUser} authed={authed} />
-               
-              <Route path='/workout' component={Workout} authed={authed} />
+               <Route path='/workout' component={Workout} authed={authed} />
                <Route path='/users' component={Users} authed={authed} />
                <Route path='/meals' component={Meal} suthed={authed} />
                 <Route path='/userProfile' component={UserProfile} authed={authed} /> 

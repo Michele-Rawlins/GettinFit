@@ -19,6 +19,7 @@ import {
 
 class Workout extends React.Component {
   state = {
+    user:'',
     newExerciseName: '',
     newReps: '',
     newSets: '',
@@ -26,30 +27,54 @@ class Workout extends React.Component {
     newBodyPart: '',
     newCaloriesBurned: '',
     newDate: '',
-    // uid: 0,
     dropdownOpen: false,
     userWorkout: [],
-    userProfile:[],
+    userProfile: [],
+    mondayCalorie:[],
      }
 
      componentDidMount() {
       var user = firebase.auth().currentUser;
-      let email = '';
-      let userId = '';
+      let email = user.email;
       
-      
-      if (user != null) {
-        email = user.email;
-        userId = user.userId;
-      }
+      // if (user != null) {
+      //   email = user.email;
+      // }
       userData.getUserByEmail(email)
       .then(userProfile => { this.setState({userProfile}) })
-      workoutData.GetUserWorkouts(userId)
-      .then(userWorkout => { this.setState({userWorkout}) })
+      .then(() => this.getWorkoutData())
+      .then(() => this.getMondayData())
+    
+      // .then(() => this.addWorkoutData())
     }
+
+    getWorkoutData = () => {
+      const { userProfile } = this.state;
+    workoutData.GetUserWorkouts(userProfile.userId)
+    .then(userWorkout => { this.setState({userWorkout}) })
+    }
+
+    getMondayData = () => {
+      const { userProfile } = this.state;
+      let mondayCalorie = '';
+    workoutData.getMondayCaloriesBurned(userProfile.userId)
+    .then(mondayCalorie => { this.setState([mondayCalorie])})
+    
+
+    }
+
+    
+//  addWorkoutData = () => {
+//    const {userProfile} = this.state;
+//    const newWorkout = '';
+//    workoutData.addWorkout(userProfile.userId)
+//  .then(newWorkout => this.props.history.push('/workouts'))
+//  .catch((err) => console.error('unable to add new Workout'))
+// }
 
   newExerciseName = (e) => {
     e.preventDefault();
+  
     this.setState({ newExerciseName: e.target.value});
   }
 
@@ -85,6 +110,7 @@ class Workout extends React.Component {
   saveNewWorkout = (e) => {
     e.preventDefault();
     const {
+      user,
       newExerciseName,
       newReps,
       newSets,
@@ -101,8 +127,9 @@ const newWorkout = {
     weight:  newWeight,
     bodyPart:  newBodyPart,
     caloriesBurned:  newCaloriesBurned,
-    Date: newDate
-    //uid: authData.getUid(),
+    date: newDate,
+    userId:user.userId
+    // uid: authData.getUid(),
 
 };
 
@@ -123,6 +150,8 @@ console.log(newWorkout);
         newDate,
         userWorkout,
         userProfile,
+        mondayCalorie,
+        caloriesBurned
           } = this.state;
    
     
@@ -147,7 +176,7 @@ console.log(newWorkout);
         <div className="form-group">
         <label htmlFor="new-reps">Reps</label>
       <input
-        type="number"
+        type="text"
         className="form-control"
         id="new-reps"
         value={newReps}
@@ -157,7 +186,7 @@ console.log(newWorkout);
         <div className="form-group">
         <label htmlFor="new-sets">Sets</label>
       <input
-        type="number"
+        type="text"
         className="form-control"
         id="new-sets"
         value={newSets}
@@ -167,7 +196,7 @@ console.log(newWorkout);
         <div className="form-group">
         <label htmlFor="new-weight">Weight</label>
       <input
-        type="number"
+        type="text"
         className="form-control"
         id="new-weight"
         value={newWeight}
@@ -191,7 +220,7 @@ console.log(newWorkout);
         <div className="form-group">
         <label htmlFor="new-caloriesBurned">Calories Burned</label>
       <input
-        type="number"
+        type="text"
         className="form-control"
         id="new-caloriesBurned"
         value={newCaloriesBurned}
@@ -221,7 +250,7 @@ console.log(newWorkout);
         <CardBody>
           
           <CardText>Here are your totals from last week</CardText>
-          <CardText>Monday:  Calories Burned:   Weight Lifted:  </CardText>
+          <CardText>Monday:  Calories Burned:{`${mondayCalorie.caloriesBurned}`}   Weight Lifted:  </CardText>
           <CardText>Tuesday: Calories Burned:   Weight Lifted:  </CardText>
           <CardText>Wednesday: Calories Burned:   Weight Lifted:  </CardText>
           <CardText>Thursday:  Calories Burned:   Weight Lifted: </CardText>
