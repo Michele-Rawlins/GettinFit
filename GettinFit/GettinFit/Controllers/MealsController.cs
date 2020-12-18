@@ -38,6 +38,110 @@ namespace GettinFit.Controllers
             return Ok(meal);
         }
 
+        [HttpGet("user/{UserId}")]
+        public IActionResult GetUserMeals(int UserId)
+        {
+            var userMeal = _repo.GetUserMeal(UserId);
+
+            if (userMeal == null) return NoContent();
+
+            return Ok(userMeal);
+
+        }
+        [HttpGet("mondayCalorieCount/{UserId}")]
+        public IActionResult GetMondayCalorieCount(int UserId)
+        {
+            var MondayCalorieCount = _repo.GetMondayCalorieCount(UserId);
+
+            if (MondayCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(MondayCalorieCount);
+        }
+
+        [HttpGet("tuesdayCalorieCount/{UserId}")]
+        public IActionResult GetTuesdayCalorieCount(int UserId)
+        {
+            var TuesdayCalorieCount = _repo.GetTuesdayCalorieCount(UserId);
+
+            if (TuesdayCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(TuesdayCalorieCount);
+        }
+
+        [HttpGet("wednesdayCalorieCount/{UserId}")]
+        public IActionResult GetWednesdayCaloriesCount(int UserId)
+        {
+            var WednesdayCalorieCount = _repo.GetWednesdayCalorieCount(UserId);
+
+            if (WednesdayCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(WednesdayCalorieCount);
+        }
+
+        [HttpGet("thursdayCalorieCount/{UserId}")]
+        public IActionResult GetThursdayCalorieCount(int UserId)
+        {
+            var ThursdayCalorieCount = _repo.GetThursdayCalorieCount(UserId);
+
+            if (ThursdayCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(ThursdayCalorieCount);
+        }
+
+        [HttpGet("fridayCalorieCount/{UserId}")]
+        public IActionResult GetFridayCalorieCount(int UserId)
+        {
+            var FridayCalorieCount = _repo.GetFridayCalorieCount(UserId);
+
+            if (FridayCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(FridayCalorieCount);
+        }
+
+        [HttpGet("saturdayCalorieCount/{UserId}")]
+        public IActionResult GetSaturdayCalorieCount(int UserId)
+        {
+            var SaturdayCalorieCount = _repo.GetSaturdayCalorieCount(UserId);
+
+            if (SaturdayCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(SaturdayCalorieCount);
+        }
+
+        [HttpGet("sundayCalorieCount/{UserId}")]
+        public IActionResult GetSundayCalorieCount(int UserId)
+        {
+            var SundayCalorieCount = _repo.GetSundayCalorieCount(UserId);
+
+            if (SundayCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(SundayCalorieCount);
+        }
+
+        [HttpGet("lastMonthsCalorieCount/{UserId}")]
+        public IActionResult GetLastMonthsCalorieCount(int UserId)
+        {
+            var LastMonthsCalorieCount = _repo.GetLastMonthsCalorieCount(UserId);
+
+            if (LastMonthsCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(LastMonthsCalorieCount);
+        }
+
+        [HttpGet("thisMonthsCalorieCount/{UserId}")]
+        public IActionResult GetThisMonthsCaloriesCount(int UserId)
+        {
+            var ThisMonthsCalorieCount = _repo.GetThisMonthsCalorieCount(UserId);
+
+            if (ThisMonthsCalorieCount == 0) return NotFound("No calories today. Let's get to it.");
+
+            return Ok(ThisMonthsCalorieCount);
+        }
+
+
+
+
+
         [HttpPost]
         public IActionResult CreateNewMeal(Meal meal)
         {

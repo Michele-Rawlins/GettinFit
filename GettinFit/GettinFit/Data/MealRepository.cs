@@ -83,6 +83,167 @@ namespace GettinFit.Data
             return meal;
         }
 
+        public int GetMondayCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int))
+                            FROM Meals
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -8, getdate()))and (select dateadd(day, -7, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var MondayCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return MondayCalorieCount;
+
+        }
+
+        public int GetTuesdayCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int))
+                            FROM Meals
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -7, getdate()))and (select dateadd(day, -6, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var TuesdayCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return TuesdayCalorieCount;
+
+        }
+        public int GetWednesdayCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int)) 
+                            FROM Meals
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -6, getdate()))and (select dateadd(day, -5, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var WednesdayCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return WednesdayCalorieCount;
+
+        }
+
+        public int GetThursdayCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int)) 
+                            FROM Meals
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -5, getdate()))and (select dateadd(day, -4, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var ThursdayCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return ThursdayCalorieCount;
+
+        }
+
+        public int GetFridayCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CaloriesCount as int)) 
+                            FROM Meals
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -4, getdate()))and (select dateadd(day, -3, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var FridayCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return FridayCalorieCount;
+
+        }
+
+        public int GetSaturdayCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int))
+                            FROM Meals
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -3, getdate()))and (select dateadd(day, -2, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var SaturdayCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return SaturdayCalorieCount;
+
+        }
+
+        public int GetSundayCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int)) 
+                            FROM Meals
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -2, getdate()))and (select dateadd(day, -1, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var SundayCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return SundayCalorieCount;
+
+        }
+
+        public int GetLastMonthsCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int)) 
+                            FROM Meals
+                            WHERE UserId = @uid
+         AND Date BETWEEN (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()) - 1, 0))and (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), -1) )";
+
+
+            var parameters = new { uid = userId };
+
+            var LastMonthsCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return LastMonthsCalorieCount;
+
+        }
+
+        public int GetThisMonthsCalorieCount(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(CalorieCount as int)) 
+                            FROM Meals
+                            WHERE UserId = @uid
+                            AND Date BETWEEN (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0) ) 
+                            and (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()) + 1, -1))";
+
+
+            var parameters = new { uid = userId };
+
+            var ThisMonthsCalorieCount = db.QuerySingle<int>(query, parameters);
+
+            return ThisMonthsCalorieCount;
+
+        }
 
     }
 }
