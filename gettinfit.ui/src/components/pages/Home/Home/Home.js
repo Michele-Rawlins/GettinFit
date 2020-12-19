@@ -23,7 +23,7 @@ class Home extends React.Component {
       <h1 className ="title">Welcome to Gettin Fit</h1>
       <MyCarousel />
 
-      <Card className="p-2 col-example text-center workoutCard">
+      <Card className="p-2 col-example text-center d-flex col-3 workoutCard">
           <CardTitle tag="h4">Let's Workout</CardTitle>
         <CardImg className="cardPic"src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29ya291dHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
@@ -34,7 +34,7 @@ class Home extends React.Component {
         </CardBody>
       </Card>
 
-      <Card className="p-2 col-example text-center mealCard">
+      <Card className="p-2 col-example text-center d-flex col-3 mealCard">
           <CardTitle tag="h4">Let's Eat</CardTitle>
         <CardImg className="cardPic"src="https://images.unsplash.com/photo-1532884968933-5173fdde39f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap" />
         <CardBody>
@@ -45,7 +45,7 @@ class Home extends React.Component {
         </CardBody>
       </Card>
 
-      <Card className="p-2 col-example text-center dashCard">
+      <Card className="p-2 col-example text-center d-flex col-3 dashCard">
           <CardTitle tag="h4">Where are we?</CardTitle>
         <CardImg className="cardPic"src="https://images.unsplash.com/photo-1465984111739-03a1ee4647a0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap" />
         <CardBody>

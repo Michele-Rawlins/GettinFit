@@ -95,11 +95,14 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var MondayCalorieCount = db.QuerySingle<int>(query, parameters);
+            var MondayCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return MondayCalorieCount;
+            if (MondayCalorieCount == null) { return 0; }
+
+            return (int)MondayCalorieCount;
 
         }
+    
 
         public int GetTuesdayCalorieCount(int userId)
         {
@@ -113,9 +116,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var TuesdayCalorieCount = db.QuerySingle<int>(query, parameters);
+            var TuesdayCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return TuesdayCalorieCount;
+            if (TuesdayCalorieCount == null) { return 0; }
+
+            return (int)TuesdayCalorieCount;
 
         }
         public int GetWednesdayCalorieCount(int userId)
@@ -130,9 +135,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var WednesdayCalorieCount = db.QuerySingle<int>(query, parameters);
+            var WednesdayCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return WednesdayCalorieCount;
+            if (WednesdayCalorieCount == null) { return 0; }
+
+            return (int)WednesdayCalorieCount;
 
         }
 
@@ -148,9 +155,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var ThursdayCalorieCount = db.QuerySingle<int>(query, parameters);
+            var ThursdayCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return ThursdayCalorieCount;
+            if (ThursdayCalorieCount == null) { return 0; }
+
+            return (int)ThursdayCalorieCount;
 
         }
 
@@ -166,9 +175,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var FridayCalorieCount = db.QuerySingle<int>(query, parameters);
+            var FridayCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return FridayCalorieCount;
+            if (FridayCalorieCount == null) { return 0; }
+
+            return (int)FridayCalorieCount;
 
         }
 
@@ -184,9 +195,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var SaturdayCalorieCount = db.QuerySingle<int>(query, parameters);
+            var SaturdayCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return SaturdayCalorieCount;
+            if (SaturdayCalorieCount == null) { return 0; }
+
+            return (int)SaturdayCalorieCount;
 
         }
 
@@ -202,9 +215,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var SundayCalorieCount = db.QuerySingle<int>(query, parameters);
+            var SundayCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return SundayCalorieCount;
+            if (SundayCalorieCount == null) { return 0; }
+
+            return (int)SundayCalorieCount;
 
         }
 
@@ -220,9 +235,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var LastMonthsCalorieCount = db.QuerySingle<int>(query, parameters);
+            var LastMonthsCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return LastMonthsCalorieCount;
+            if (LastMonthsCalorieCount == null) { return 0; }
+
+            return (int)LastMonthsCalorieCount;
 
         }
 
@@ -239,9 +256,11 @@ namespace GettinFit.Data
 
             var parameters = new { uid = userId };
 
-            var ThisMonthsCalorieCount = db.QuerySingle<int>(query, parameters);
+            var ThisMonthsCalorieCount = db.QuerySingle<int?>(query, parameters);
 
-            return ThisMonthsCalorieCount;
+            if (ThisMonthsCalorieCount == null) { return 0; }
+
+            return (int)ThisMonthsCalorieCount;
 
         }
 
