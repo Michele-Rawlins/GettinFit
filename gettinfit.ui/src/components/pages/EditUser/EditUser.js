@@ -177,6 +177,7 @@ class EditUser extends React.Component {
       newBeginningPhoto,
       NewProgressPhoto,
       newDate,
+      progressPhoto,
 
 
     } = this.state;
@@ -196,7 +197,7 @@ const updatedUser = {
     weightGoal: newWeightGoal,
     beginningWeight:  newBeginningWeight,
     beginningPhoto: newBeginningPhoto,
-  progressPhoto: this.newProgressPhoto,
+    progressPhoto: this.newProgressPhoto,
     date:  newDate,
      uid: userData.getSingleUser(userProfile.userId),
 
@@ -373,11 +374,11 @@ render() {
         />
         </div>
         <div className="form-group">
-        <label htmlFor="new-beginningPhoto">Place Progress Photo here</label>
+        <label htmlFor="new-progressPhoto">Place Progress Photo here</label>
       <input
         type="text"
         className="form-control"
-        id="new-beginningPhoto"
+        id="new-progressPhoto"
         value={newProgressPhoto}
         onChange={this.newProgressPhoto}
         />
