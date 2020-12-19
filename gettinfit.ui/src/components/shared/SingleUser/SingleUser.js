@@ -42,6 +42,8 @@ class SingleUser extends React.Component {
             <li>CalorieGoal:  {userProfile.calorieGoal}</li>
             <li>WeightGoal: {userProfile.weightGoal}</li>
             <li>BeginningWeight:  {userProfile.beginningWeight}</li>
+            <li>BeginningPhoto: {userProfile.beginningPhoto}</li>
+            <li>ProgressPhoto: {userProfile.progressPhoto}</li>
             <li>Date Created: {userProfile.date} </li>
             
         </ul>
