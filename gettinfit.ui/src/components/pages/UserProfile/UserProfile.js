@@ -171,7 +171,7 @@ sundayCount,
       <h2>{`${userProfile.firstName} ${userProfile.lastName}'s Profile`}</h2>
 
         <div className="profile-container">
-          <img src={`${userProfile.imageUrl}`} className="userProfileImage col-4"alt={`"${userProfile.firstName}'s Profile Pic"`}></img>
+          <img src={`${userProfile.imageUrl}`} className="userProfileImage col-4"alt= "Profile Pic"/>
           <div className="profile-info col-12">
             <p className="profile-line-item"><span className="line-title">Email Address:  </span> {userProfile.email}</p>
             <p className="profile-line-item"><span className="line-title">Sex:  </span>{userProfile.sex}&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span className="line-title">Height:  </span>{userProfile.height}</p>
@@ -192,7 +192,7 @@ sundayCount,
       <Col sm="4">
       <Card className="beginningCard">
           <CardTitle tag="h4">Where we started</CardTitle>
-        <CardImg src={userProfile.beginningPhoto}/>
+        <img src={userProfile.beginningPhoto}className="beginningImage col-4"alt= "Beginning Pic"/>
         <CardBody>
           
                    
@@ -215,7 +215,7 @@ sundayCount,
       <Col sm="4">
       <Card className="progressCard">
           <CardTitle tag="h4">Upload a progress photo on your user profile</CardTitle>
-        <CardImg src={userProfile.progressPhoto}/>
+        <img src={userProfile.progressPhoto}className="ProgressImage col-4"alt= "Progress Pic"/>
         <CardBody>
           
                    
