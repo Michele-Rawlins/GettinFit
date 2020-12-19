@@ -83,7 +83,7 @@ namespace GettinFit.Data
         {
             using var db = new SqlConnection(_connectionString);
 
-            var query = @"SELECT SUM(CAST(CaloriesBurned as int?))
+            var query = @"SELECT SUM(CAST(CaloriesBurned as int))
                             FROM Workouts
                             WHERE UserId = @uid
             AND Date between(select dateadd(day, -8, getdate()))and (select dateadd(day, -7, getdate()))";
@@ -142,11 +142,11 @@ namespace GettinFit.Data
         {
             using var db = new SqlConnection(_connectionString);
 
-            var query = @"SELECT SUM(CAST(CaloriesBurned as int?)) 
+            var query = @"SELECT SUM(CAST(CaloriesBurned as int)) 
                             FROM Workouts
                             WHERE UserId = @uid
-            AND Date between(select dateadd(day, -5, getdate()))and (select dateadd(day, -4, getdate()))
-            AND caloriesBurned is not null" ;
+            AND Date between(select dateadd(day, -5, getdate()))and (select dateadd(day, -4, getdate()))";
+           
 
 
             var parameters = new { uid = userId };
