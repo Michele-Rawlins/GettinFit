@@ -311,7 +311,8 @@ console.log(newWorkout);
         <button className="btn btn-secondary" onClick={this.saveNewWorkout}>Save New Workout</button>
       </form>
      
-     <Card Container ="d-flex justify-content-start">
+     {/* <Card Container ="d-flex justify-content-start"> */}
+     <Card>
       <Row>
       <Col md="8">
       <Card className="p-2 col-example text-left workoutCard">
