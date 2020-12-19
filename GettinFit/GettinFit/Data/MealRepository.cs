@@ -158,7 +158,7 @@ namespace GettinFit.Data
         {
             using var db = new SqlConnection(_connectionString);
 
-            var query = @"SELECT SUM(CAST(CaloriesCount as int)) 
+            var query = @"SELECT SUM(CAST(CalorieCount as int)) 
                             FROM Meals
                             WHERE UserId = @uid
             AND Date between(select dateadd(day, -4, getdate()))and (select dateadd(day, -3, getdate()))";

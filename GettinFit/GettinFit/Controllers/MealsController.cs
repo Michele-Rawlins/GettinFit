@@ -69,7 +69,7 @@ namespace GettinFit.Controllers
         }
 
         [HttpGet("wednesdayCalorieCount/{UserId}")]
-        public IActionResult GetWednesdayCaloriesCount(int UserId)
+        public IActionResult GetWednesdayCalorieCount(int UserId)
         {
             var WednesdayCalorieCount = _repo.GetWednesdayCalorieCount(UserId);
 
@@ -129,7 +129,7 @@ namespace GettinFit.Controllers
         }
 
         [HttpGet("thisMonthsCalorieCount/{UserId}")]
-        public IActionResult GetThisMonthsCaloriesCount(int UserId)
+        public IActionResult GetThisMonthsCalorieCount(int UserId)
         {
             var ThisMonthsCalorieCount = _repo.GetThisMonthsCalorieCount(UserId);
 

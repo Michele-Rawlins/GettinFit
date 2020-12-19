@@ -107,6 +107,7 @@ namespace GettinFit.Data
                 user.Date,
                 uid = userId
                 
+                
                
             };
 

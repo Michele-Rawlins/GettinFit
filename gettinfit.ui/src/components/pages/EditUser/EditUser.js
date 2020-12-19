@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase'
 
 import authData from '../../../helpers/data/authData';
 
@@ -8,6 +9,7 @@ import userData from '../../../helpers/data/userData';
 
 class EditUser extends React.Component {
   state = {
+    userProfile: {},
     newFirstName: '',
     newLastName: '',
     newEmail: '',
@@ -28,8 +30,25 @@ class EditUser extends React.Component {
      }
 
      componentDidMount() {
-      const userId = this.props.match.params.userId;
-      userData.getSingleUser(userId)
+      var user = firebase.auth().currentUser;
+      let email = user.email;
+      const { userProfile } = this.state;
+      // if (user != null) {
+      //   email = user.email;
+      // }
+      userData.getUserByEmail(email)
+      .then(userProfile => { this.setState({userProfile})}) 
+      .then(() => this.getActiveUser())
+      
+     }
+     
+     
+
+
+     getActiveUser = () => {
+      // const userId = this.props.match.params.userId;
+      const { userProfile } = this.state;
+      userData.getSingleUser(userProfile.userId)
       .then((response) => {
         const user = response.data;
         this.setState({
@@ -53,6 +72,7 @@ class EditUser extends React.Component {
       })
       .catch((err) => console.error('unable to edit user', err));
     }
+  
 
   newFirstName = (e) => {
     e.preventDefault();
@@ -140,6 +160,7 @@ class EditUser extends React.Component {
     e.preventDefault();
     const { userId } = this.props.match.params;
     const {
+      userProfile,
       newFirstName,
       newLastName,
       newEmail,
@@ -177,15 +198,15 @@ const updatedUser = {
     beginningPhoto: newBeginningPhoto,
   progressPhoto: this.newProgressPhoto,
     date:  newDate,
-     uid: userData.getSingleUser(),
+     uid: userData.getSingleUser(userProfile.userId),
 
 };
 
-userData.updateUser(updatedUser)
+userData.updateUser(userProfile.userId, updatedUser)
 .then(() => this.props.history.push('/user'))
 .catch((err) => console.error('unable to update User'))
-}
 
+  }
 render() {
   const {
 

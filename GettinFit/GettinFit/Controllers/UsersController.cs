@@ -33,10 +33,10 @@ namespace GettinFit.Controllers
             return Ok(allUsers);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetSingleUser(int id)
+        [HttpGet("{UserId}")]
+        public IActionResult GetSingleUser(int UserId)
         {
-            var singleUser = _repo.GetUserById(id);
+            var singleUser = _repo.GetUserById(UserId);
 
             return Ok(singleUser);
         }
