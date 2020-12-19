@@ -24,6 +24,7 @@ import Meal from '../components/pages/Meal/Meal';
 import UserProfile from '../components/pages/UserProfile/UserProfile';
 import EditUser from '../components/pages/EditUser/EditUser';
 import Workout from '../components/pages/Workout/Workout';
+import MyFooter from '../components/shared/MyFooter/MyFooter';
 
 fbConnection();
 
@@ -86,6 +87,7 @@ class App extends React.Component {
               </Switch>
               </div>
             </div>
+            <MyFooter/>
           </React.Fragment>
         </BrowserRouter>
       </div>
