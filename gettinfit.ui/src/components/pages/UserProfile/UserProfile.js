@@ -34,11 +34,11 @@ class UserProfile extends React.Component {
 
     componentDidMount() {
     var user = firebase.auth().currentUser;
-    let email = user.email;
+    let email = '';
     
-    // if (user != null) {
-    //   email = user.email;
-    // }
+    if (user != null) {
+      email = user.email;
+    }
     userData.getUserByEmail(email)
     .then(userProfile => { this.setState({userProfile}) })
     .then(() => this.getMondayData())

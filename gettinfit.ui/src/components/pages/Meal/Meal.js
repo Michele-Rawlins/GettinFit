@@ -33,11 +33,11 @@ class Meal extends React.Component {
 
      componentDidMount() {
       var user = firebase.auth().currentUser;
-      let email = user.email;
-      
-      // if (user != null) {
-      //   email = user.email;
-      // }
+      let email = '';
+    
+    if (user != null) {
+      email = user.email;
+    }
       userData.getUserByEmail(email)
       .then(userProfile => { this.setState({userProfile}) })
       .then(() => this.getMealData())
@@ -50,6 +50,7 @@ class Meal extends React.Component {
       .then(() => this.getSundayData())
       .then(() => this.getLastMonthCalorie())
       .then(() => this.getThisMonthCalorie())
+      
     }
 
     getMealData = () => {
@@ -134,27 +135,35 @@ class Meal extends React.Component {
 
   saveNewMeal = (e) => {
     e.preventDefault();
+    
     const {
+      user,
+      userProfile,
       newFoodDescription,
       newCalorieCount,
       newWhichMeal,
       newDate,
+      
     } = this.state;
 
 const newMeal = {
     foodDescription: newFoodDescription,
     calorieCount: newCalorieCount,
     whichMeal:  newWhichMeal,
-    Date: newDate
-    // uid: authData.getUid(),
+    Date: newDate,
+    userId:userProfile.userId,
 
 };
 
 console.log(newMeal);
- mealData.addMeal(newMeal)
+console.log(userProfile);
+console.log(user);
+
+mealData.addMeal(userProfile.userId, newMeal)
  .then(() => this.props.history.push('/meals'))
- .catch((err) => console.error('unable to add new Workout'))
-}
+ .catch((err) => console.error('unable to add new Meal'))
+  }
+
 
   render() {
     const {

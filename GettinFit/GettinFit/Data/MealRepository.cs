@@ -57,11 +57,11 @@ namespace GettinFit.Data
                                 ,[UserId])                                
                                Output inserted.mealid
                         VALUES
-                               (@foodDescription,@calorieCount,@whichMeal,@date, 1)";
+                               (@foodDescription,@calorieCount,@whichMeal,@date,@userId)";
 
             //var parameters = new { user = userId };
             
-            var parameters = new { foodDescription = mealToAdd.FoodDescription, calorieCount = mealToAdd.CalorieCount, whichMeal = mealToAdd.WhichMeal, date = mealToAdd.Date };
+            var parameters = new { foodDescription = mealToAdd.FoodDescription, calorieCount = mealToAdd.CalorieCount, whichMeal = mealToAdd.WhichMeal, date = mealToAdd.Date, userId = mealToAdd.UserId };
 
             var newMeal = db.QuerySingle<Meal>(sql, parameters);
 

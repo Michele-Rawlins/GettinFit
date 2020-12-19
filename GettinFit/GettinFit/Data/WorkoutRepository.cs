@@ -61,11 +61,11 @@ namespace GettinFit.Data
                                 ,[Date])                                
                                Output inserted.workoutid
                         VALUES
-                               (@exerciseName,@reps,@sets,@weight,@bodyPart,@caloriesBurned,1,@date)";
+                               (@exerciseName,@reps,@sets,@weight,@bodyPart,@caloriesBurned,@userId,@date)";
 
             //var parameters = new { workout = WorkoutId };
 
-            var parameters = new { exerciseName = workoutToAdd.ExerciseName, reps = workoutToAdd.Reps, sets = workoutToAdd.Sets, weight = workoutToAdd.Weight, bodyPart = workoutToAdd.BodyPart, caloriesBurned = workoutToAdd.CaloriesBurned, date = workoutToAdd.Date };
+            var parameters = new { exerciseName = workoutToAdd.ExerciseName, reps = workoutToAdd.Reps, sets = workoutToAdd.Sets, weight = workoutToAdd.Weight, bodyPart = workoutToAdd.BodyPart, caloriesBurned = workoutToAdd.CaloriesBurned, date = workoutToAdd.Date, userId = workoutToAdd.UserId };
 
             var newWorkout = db.QuerySingle<Workout>(sql, parameters);
 
