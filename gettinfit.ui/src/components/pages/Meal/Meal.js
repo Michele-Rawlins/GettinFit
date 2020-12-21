@@ -159,7 +159,7 @@ console.log(newMeal);
 console.log(userProfile);
 console.log(user);
 
-mealData.addMeal(userProfile.userId, newMeal)
+mealData.addMeal(newMeal)
  .then(() => this.props.history.push('/meals'))
  .catch((err) => console.error('unable to add new Meal'))
   }
@@ -205,7 +205,7 @@ mealData.addMeal(userProfile.userId, newMeal)
         <div className="form-group">
         <label htmlFor="new-calorieCount">Calorie Count</label>
       <input
-        type="number"
+        type="text"
         className="form-control"
         id="new-calorieCount"
         value={newCalorieCount}
@@ -215,6 +215,7 @@ mealData.addMeal(userProfile.userId, newMeal)
         <div className="form-group">
         <label htmlFor="new-whichMeal">Which Meal</label>
       <select
+      type="text"
         className="form-control"
         id="new-whichMeal"
         value={newWhichMeal}
