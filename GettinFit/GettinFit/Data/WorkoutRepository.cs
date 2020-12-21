@@ -65,7 +65,7 @@ namespace GettinFit.Data
 
             //var parameters = new { workout = WorkoutId };
 
-            var parameters = new { exerciseName = workoutToAdd.ExerciseName, reps = workoutToAdd.Reps, sets = workoutToAdd.Sets, weight = workoutToAdd.Weight, bodyPart = workoutToAdd.BodyPart, caloriesBurned = workoutToAdd.CaloriesBurned, date = workoutToAdd.Date, userId = workoutToAdd.UserId };
+            var parameters = new { exerciseName = workoutToAdd.ExerciseName, reps = workoutToAdd.Reps, sets = workoutToAdd.Sets, weight = workoutToAdd.Weight, bodyPart = workoutToAdd.BodyPart, caloriesBurned = workoutToAdd.CaloriesBurned, date = workoutToAdd.Date, userId = workoutToAdd.UserId};
 
             var newWorkout = db.QuerySingle<Workout>(sql, parameters);
 

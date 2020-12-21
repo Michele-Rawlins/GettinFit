@@ -170,9 +170,10 @@ class Workout extends React.Component {
   }
 
   saveNewWorkout = (e) => {
-    e.preventDefault();
+      e.preventDefault();
     const {
       user,
+      userProfile,
       newExerciseName,
       newReps,
       newSets,
@@ -190,7 +191,7 @@ const newWorkout = {
     bodyPart:  newBodyPart,
     caloriesBurned:  newCaloriesBurned,
     date: newDate,
-    userId:user.userId
+    userId:userProfile.userId
     // uid: authData.getUid(),
 
 };

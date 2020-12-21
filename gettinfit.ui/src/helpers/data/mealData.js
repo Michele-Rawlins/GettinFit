@@ -77,7 +77,7 @@ const getThisMonthsCalorieCount = (UserId) => new Promise((resolve, reject) => {
 });
 
 
-const addMeal = (userId, newMeal) => axios.post(`${baseUrl}/meals${userId}`, newMeal);
+const addMeal = (userId, newMeal) => axios.post(`${baseUrl}/meals`, newMeal);
 // const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
 
 export default {
