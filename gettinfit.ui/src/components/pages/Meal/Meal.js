@@ -215,7 +215,7 @@ mealData.addMeal(newMeal)
         <div className="form-group">
         <label htmlFor="new-whichMeal">Which Meal</label>
       <select
-      type="text"
+     
         className="form-control"
         id="new-whichMeal"
         value={newWhichMeal}

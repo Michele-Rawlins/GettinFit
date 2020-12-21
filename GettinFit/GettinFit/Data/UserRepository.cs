@@ -143,7 +143,7 @@ namespace GettinFit.Data
                         VALUES
                                (@firstName,@lastName,@email,@sex,@height,@currentWeight,@age,@imageUrl,@birthdate,@calorieGoal,@weightGoal,@beginningWeight,@beginningPhoto,@progressPhoto,@date)";
 
-                var parameters = new { firstName = userToAdd.FirstName, lastName = userToAdd.LastName, email = userToAdd.Email, sex = userToAdd.Sex, height = userToAdd.Height, currentWeight = userToAdd.CurrentWeight,age = userToAdd.Age,  imageUrl = userToAdd.ImageUrl, birthdate = userToAdd.Birthdate, calorieGoal = userToAdd.CalorieGoal, weightGoal = userToAdd.WeightGoal, beginningWeight = userToAdd.BeginningWeight,beginningPhoto = userToAdd.BeginningPhoto, progressPhoto = userToAdd.ProgressPhoto,date = userToAdd.Date };
+                var parameters = new { firstName = userToAdd.FirstName, lastName = userToAdd.LastName, email = userToAdd.Email, sex = userToAdd.Sex, height = userToAdd.Height, currentWeight = userToAdd.CurrentWeight,age = userToAdd.Age,  imageUrl = userToAdd.ImageUrl, birthdate = userToAdd.Birthdate, calorieGoal = userToAdd.CalorieGoal, weightGoal = userToAdd.WeightGoal, beginningWeight = userToAdd.BeginningWeight,beginningPhoto = userToAdd.BeginningPhoto, progressPhoto = userToAdd.ProgressPhoto,date = userToAdd.Date};
 
                 var newUser = db.QuerySingle<User>(sql, parameters);
 
