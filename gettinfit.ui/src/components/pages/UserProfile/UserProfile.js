@@ -186,11 +186,12 @@ sundayCount,
               </div>
           </div>
           </div>
+          </div>
               
          <hr></hr>
          
-      <Col sm="4">
-      <Card className="beginningCard">
+    <div className="beginning-progress photos d-flex flex-wrap">
+      <Card className="beginningCard p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">Where we started</CardTitle>
         <img src={userProfile.beginningPhoto}className="beginningImage col-4"alt= "Beginning Pic"/>
         <CardBody>
@@ -198,10 +199,10 @@ sundayCount,
                    
         </CardBody>
       </Card>
-      </Col>
+      
     
-      <Col sm="4">
-    <Card className="middleCard">
+   
+    <Card className="p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">How Far have we come?</CardTitle>
           <CardBody>
         
@@ -209,11 +210,11 @@ sundayCount,
          
         </CardBody>
       </Card>
-      </Col>
+     
    
    
-      <Col sm="4">
-      <Card className="progressCard">
+  
+      <Card className="p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">Upload a progress photo on your user profile</CardTitle>
         <img src={userProfile.progressPhoto}className="ProgressImage col-4"alt= "Progress Pic"/>
         <CardBody>
@@ -221,11 +222,13 @@ sundayCount,
                    
         </CardBody>
       </Card>
-      </Col>
+      </div>
+          
       <hr></hr>
-      <div className="meals-container">
-      <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"/>
+      <div className="calorie-container d-flex-flex-wrap">
+      <div className="p-2 col-example text-center d-flex col-6 mealCard">
       <CardText>Here are your totals from last week</CardText>
+      <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"/>
           <CardText>Monday:  Calories Consumed:{`${mondayCount}`}  </CardText>
           <CardText>Tuesday: Calories Consumed: {`${tuesdayCount}`}  </CardText>
           <CardText>Wednesday: Calories Consumed: {`${wednesdayCount}`}  </CardText>
@@ -235,9 +238,9 @@ sundayCount,
           <CardText>Sunday:  Calories Consumed: {`${sundayCount}`}  </CardText> 
           </div>
       <hr></hr>
-      <div className="workout-container">
-        <img src = "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"/>
+      <div className="p-2 col-example text-center d-flex col-6 workoutCard">
       <CardText>Here are your totals from last week</CardText>
+        <img src = "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=400&q=80"/>
           <CardText>Monday:  Calories Burned: {`${mondayCalorie}`} </CardText>
           <CardText>Tuesday: Calories Burned: {`${tuesdayCalorie}`}  </CardText>
           <CardText>Wednesday: Calories Burned:{`${wednesdayCalorie}`}  </CardText>
@@ -245,14 +248,10 @@ sundayCount,
           <CardText>Friday:  Calories Burned:  {`${fridayCalorie}`}   </CardText>
           <CardText>Saturday:  Calories Burned:{`${saturdayCalorie}`}  </CardText>
           <CardText>Sunday:  Calories Burned: {`${sundayCalorie}`}  </CardText> 
-  
+  </div>
           </div> 
+          </div>
          
-</div>
-</div>
-      
-   
-   
 
   )
 }

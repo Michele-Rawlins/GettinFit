@@ -240,10 +240,8 @@ mealData.addMeal(newMeal)
         
         <button className="btn btn-secondary" onClick={this.saveNewMeal}>Save New Meal</button>
       </form>
-     
-      <Row>
-      <Col sm="4">
-      <Card className="MealCard">
+      <div className="meal-container d-flex flex-wrap">
+        <Card className="p-2 col-example text-center d-flex col-3 mealCard">
           <CardTitle tag="h4">Last Weeks Total</CardTitle>
         <CardImg  src="https://images.unsplash.com/photo-1510081893571-639c2cb7f2ed?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fGJyZWFrZmFzdCUyMG1lYWx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
@@ -286,9 +284,8 @@ mealData.addMeal(newMeal)
          
         </CardBody>
       </Card>
-      </Col>
-      </Row>
-    
+     
+    </div>
        </div>
        </div>   
   )

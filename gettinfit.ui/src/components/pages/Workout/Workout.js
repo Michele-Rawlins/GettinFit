@@ -312,11 +312,10 @@ console.log(newWorkout);
         <button className="btn btn-secondary" onClick={this.saveNewWorkout}>Save New Workout</button>
       </form>
      
-     {/* <Card Container ="d-flex justify-content-start"> */}
-     <Card>
-      <Row>
-      <Col md="8">
-      <Card className="p-2 col-example text-left workoutCard">
+    <div className="workout-container d-flex flex-wrap">
+     
+          
+      <Card className="p-2 col-example text-center d-flex col-3 workoutCard">
           <CardTitle tag="h4">Last Weeks Total</CardTitle>
         <CardImg  src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
@@ -335,7 +334,7 @@ console.log(newWorkout);
       </Card>
     
     
-    <Card className="p-2 col-example text-center workoutCard">
+    <Card className="p-2 col-example text-center d-flex col-3 workoutCard">
           <CardTitle tag="h4">This Months Total</CardTitle>
         <CardImg src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29ya291dHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
@@ -348,7 +347,7 @@ console.log(newWorkout);
    
    
      
-    <Card className="workoutCard">
+    <Card className="p-2 col-example text-center d-flex col-3 workoutCard">
           <CardTitle tag="h4">Last Month's Total</CardTitle>
         <CardImg src="https://images.unsplash.com/photo-1547919307-1ecb10702e6f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
@@ -357,12 +356,11 @@ console.log(newWorkout);
           <CardText>Calories Burned:{`${lastMonthCalorie}`}</CardText>
          </CardBody>
       </Card>
-      </Col>
-      </Row>
-      </Card>
+      
     
        </div>
-       </div>   
+       </div> 
+       </div>  
   )
 }
 }
