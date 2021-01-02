@@ -356,8 +356,7 @@ console.log(newWorkout);
           <CardText>Calories Burned:{`${lastMonthCalorie}`}</CardText>
          </CardBody>
       </Card>
-      
-    
+     
        </div>
        </div> 
        </div>  

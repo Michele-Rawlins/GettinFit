@@ -24,7 +24,7 @@ class MyNavbar extends React.Component {
     logMeOut = (e) => {
         e.preventDefault();
         firebase.auth().signOut();
-        <NavLink className="navbar-links" tag={RRNavLink} to='/login'>LogIn</NavLink>
+       <NavLink className="navbar-links" tag={RRNavLink} to='/login'>LogIn</NavLink>
       }
 
     toggle = () => {
@@ -33,6 +33,7 @@ class MyNavbar extends React.Component {
 
     render() {
         const { isOpen } = this.state;
+
                 return(
             <div className="MyNavbar">
                 <Navbar color="dark" dark expand="md">
@@ -46,9 +47,9 @@ class MyNavbar extends React.Component {
                     <NavItem>
               <NavLink className="navbar-links" tag={RRNavLink} to='/workout'>Workout</NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink className="navbar-links" tag={RRNavLink} to='/users'>Users</NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <NavLink className="navbar-links" tag={RRNavLink} to='/userProfile'>User Profile</NavLink>
             </NavItem>
