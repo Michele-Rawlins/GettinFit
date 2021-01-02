@@ -227,27 +227,28 @@ sundayCount,
       <hr></hr>
       <div className="calorie-container d-flex-flex-wrap">
       <div className="p-2 col-example text-center d-flex col-6 mealCard">
-      <CardText>Here are your totals from last week</CardText>
+      <CardText>Last Week</CardText>
       <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"/>
-          <CardText>Monday:  Calories Consumed:{`${mondayCount}`}  </CardText>
-          <CardText>Tuesday: Calories Consumed: {`${tuesdayCount}`}  </CardText>
-          <CardText>Wednesday: Calories Consumed: {`${wednesdayCount}`}  </CardText>
-          <CardText>Thursday:  Calories Consumed: {`${thursdayCount}`}  </CardText>
-          <CardText>Friday:  Calories Consumed:   {`${fridayCount}`}  </CardText>
-          <CardText>Saturday:  Calories Consumed: {`${saturdayCount}`} </CardText>
-          <CardText>Sunday:  Calories Consumed: {`${sundayCount}`}  </CardText> 
-          </div>
+      
+          <CardText className="column">Monday:  Calories Consumed: <hr></hr>{`${mondayCount}`}  </CardText>
+          <CardText className="column">Tuesday: Calories Consumed: <hr></hr> {`${tuesdayCount}`}  </CardText>
+          <CardText className="column">Wednesday: Calories Consumed: <hr></hr> {`${wednesdayCount}`}  </CardText>
+          <CardText className="column">Thursday:  Calories Consumed: <hr></hr> {`${thursdayCount}`}  </CardText>
+          <CardText className="column">Friday:  Calories Consumed:  <hr></hr> {`${fridayCount}`}  </CardText>
+          <CardText className="column">Saturday:  Calories Consumed:<hr></hr> {`${saturdayCount}`} </CardText>
+          <CardText className="column">Sunday:  Calories Consumed: <hr></hr> {`${sundayCount}`}  </CardText> 
+                    </div>
       <hr></hr>
       <div className="p-2 col-example text-center d-flex col-6 workoutCard">
-      <CardText>Here are your totals from last week</CardText>
+      <CardText>Last Week</CardText>
         <img src = "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=400&q=80"/>
-          <CardText>Monday:  Calories Burned: {`${mondayCalorie}`} </CardText>
-          <CardText>Tuesday: Calories Burned: {`${tuesdayCalorie}`}  </CardText>
-          <CardText>Wednesday: Calories Burned:{`${wednesdayCalorie}`}  </CardText>
-          <CardText>Thursday:  Calories Burned: {`${thursdayCalorie}`}  </CardText>
-          <CardText>Friday:  Calories Burned:  {`${fridayCalorie}`}   </CardText>
-          <CardText>Saturday:  Calories Burned:{`${saturdayCalorie}`}  </CardText>
-          <CardText>Sunday:  Calories Burned: {`${sundayCalorie}`}  </CardText> 
+          <CardText className="column">Monday:  Calories Burned: <hr></hr> {`${mondayCalorie}`} </CardText>
+          <CardText className="column">Tuesday: Calories Burned: <hr></hr> {`${tuesdayCalorie}`}  </CardText>
+          <CardText className="column">Wednesday: Calories Burned:<hr></hr> {`${wednesdayCalorie}`}  </CardText>
+          <CardText className="column">Thursday:  Calories Burned: <hr></hr> {`${thursdayCalorie}`}  </CardText>
+          <CardText className="column">Friday:  Calories Burned: <hr></hr> {`${fridayCalorie}`}   </CardText>
+          <CardText className="column">Saturday:  Calories Burned: <hr></hr> {`${saturdayCalorie}`}  </CardText>
+          <CardText className="column">Sunday:  Calories Burned: <hr></hr> {`${sundayCalorie}`}  </CardText> 
   </div>
           </div> 
           </div>

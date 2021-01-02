@@ -242,15 +242,15 @@ mealData.addMeal(newMeal)
       </form>
       <div className="meal-container d-flex flex-wrap">
         <Card className="p-2 col-example text-center d-flex col-3 mealCard">
-          <CardTitle tag="h4">Last Weeks Total</CardTitle>
+          <CardTitle tag="h4">Last Week's Totals</CardTitle>
         <CardImg  src="https://images.unsplash.com/photo-1510081893571-639c2cb7f2ed?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fGJyZWFrZmFzdCUyMG1lYWx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
           
-          <CardText>Here are your totals from last week</CardText>
-          <CardText>Monday:  Calories Consumed:{`${mondayCalorie}`}   </CardText>
-          
+          <CardText>Last Week's Totals</CardText>
+          <hr></hr>
+          <CardText>Monday:  Calories Consumed: {`${mondayCalorie}`}   </CardText>
           <CardText>Tuesday: Calories Consumed: {`${tuesdayCalorie}`}  </CardText>
-          <CardText>Wednesday: Calories Consumed:{`${wednesdayCalorie}`} </CardText>
+          <CardText>Wednesday: Calories Consumed: {`${wednesdayCalorie}`} </CardText>
           <CardText>Thursday:  Calories Consumed: {`${thursdayCalorie}`} </CardText>
           <CardText>Friday:  Calories Consumed: {`${fridayCalorie}`}   </CardText>
           <CardText>Saturday:  Calories Consumed: {`${saturdayCalorie}`}</CardText>
@@ -261,26 +261,28 @@ mealData.addMeal(newMeal)
       </Card>
     
     
-    <Card className="workoutCard">
-          <CardTitle tag="h4">This Months Total</CardTitle>
+    <Card className="mealCard">
+          <CardTitle tag="h4">This Month's Totals</CardTitle>
         <CardImg src="https://images.unsplash.com/photo-1598514983744-9a246f301275?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzR8fGx1bmNoJTIwbWVhbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
         
-          <CardText>Here are this Month's Totals</CardText>
-          <CardText>Calories Consumed:{`${thisMonthCalorie}`}</CardText>
+          <CardText>This Month's Totals</CardText>
+          <hr></hr>
+          <CardText>Calories Consumed: {`${thisMonthCalorie}`}</CardText>
         
         </CardBody>
       </Card>
    
    
      
-    <Card className="workoutCard">
-          <CardTitle tag="h4">Last Month's Total</CardTitle>
+    <Card className="mealCard">
+          <CardTitle tag="h4">Last Month's Totals</CardTitle>
         <CardImg src="https://images.unsplash.com/photo-1485704686097-ed47f7263ca4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8a2V0byUyMGRpbm5lciUyMG1lYWx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
           
-          <CardText>Here are Last Months Totals</CardText>
-          <CardText>Calories Consumed:{`${lastMonthCalorie}`}</CardText>
+          <CardText>Last Month's Totals</CardText>
+          <hr></hr>
+          <CardText>Calories Consumed: {`${lastMonthCalorie}`}</CardText>
          
         </CardBody>
       </Card>
