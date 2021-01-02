@@ -316,15 +316,16 @@ console.log(newWorkout);
      
           
       <Card className="p-2 col-example text-center d-flex col-3 workoutCard">
-          <CardTitle tag="h4">Last Weeks Total</CardTitle>
+          <CardTitle tag="h4">Last Week's Totals</CardTitle>
         <CardImg  src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
           
-          <CardText>Here are your totals from last week</CardText>
-          <CardText>Monday:  Calories Burned:{`${mondayCalorie}`}   </CardText>
+          <CardText>Last Week's Totals</CardText>
+          <hr></hr>
+          <CardText>Monday:  Calories Burned: {`${mondayCalorie}`}   </CardText>
           
           <CardText>Tuesday: Calories Burned: {`${tuesdayCalorie}`}  </CardText>
-          <CardText>Wednesday: Calories Burned:{`${wednesdayCalorie}`} </CardText>
+          <CardText>Wednesday: Calories Burned: {`${wednesdayCalorie}`} </CardText>
           <CardText>Thursday:  Calories Burned: {`${thursdayCalorie}`} </CardText>
           <CardText>Friday:  Calories Burned: {`${fridayCalorie}`}   </CardText>
           <CardText>Saturday:  Calories Burned: {`${saturdayCalorie}`}</CardText>
@@ -335,12 +336,13 @@ console.log(newWorkout);
     
     
     <Card className="p-2 col-example text-center d-flex col-3 workoutCard">
-          <CardTitle tag="h4">This Months Total</CardTitle>
+          <CardTitle tag="h4">This Month's Totals</CardTitle>
         <CardImg src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29ya291dHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
         
-          <CardText>Here are this Month's Totals</CardText>
-          <CardText>Calories Burned:{`${thisMonthCalorie}`} </CardText>
+          <CardText>This Month's Totals</CardText>
+          <hr></hr>
+          <CardText>Calories Burned: {`${thisMonthCalorie}`} </CardText>
           
         </CardBody>
       </Card>
@@ -352,8 +354,9 @@ console.log(newWorkout);
         <CardImg src="https://images.unsplash.com/photo-1547919307-1ecb10702e6f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>
           
-          <CardText>Here are Last Months Totals</CardText>
-          <CardText>Calories Burned:{`${lastMonthCalorie}`}</CardText>
+          <CardText>Last Month's Totals</CardText>
+          <hr></hr>
+          <CardText>Calories Burned: {`${lastMonthCalorie}`}</CardText>
          </CardBody>
       </Card>
      

@@ -76,6 +76,11 @@ code {
  
 }
 
+.column {
+  padding: 5px;
+  border-right: 1px solid black;
+}
+
 Card {
   flex: 0 1 24%;
 }
