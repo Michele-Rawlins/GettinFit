@@ -175,9 +175,9 @@ class EditUser extends React.Component {
       newWeightGoal,
       newBeginningWeight,
       newBeginningPhoto,
-      NewProgressPhoto,
+      newProgressPhoto,
       newDate,
-      progressPhoto,
+   
 
 
     } = this.state;
@@ -197,7 +197,7 @@ const updatedUser = {
     weightGoal: newWeightGoal,
     beginningWeight:  newBeginningWeight,
     beginningPhoto: newBeginningPhoto,
-    progressPhoto: this.newProgressPhoto,
+    progressPhoto: newProgressPhoto,
     date:  newDate,
      uid: userData.getSingleUser(userProfile.userId),
 

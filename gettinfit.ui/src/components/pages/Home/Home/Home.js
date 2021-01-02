@@ -47,7 +47,7 @@ class Home extends React.Component {
 
       <Card className="p-2 col-example text-center d-flex col-3 dashCard">
           <CardTitle tag="h4">Where are we?</CardTitle>
-        <CardImg className="cardPic"src="https://images.unsplash.com/photo-1465984111739-03a1ee4647a0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap" />
+        <CardImg className="cardPic"src="https://images.unsplash.com/photo-1465984111739-03a1ee4647a0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Card image cap" />
         <CardBody>
         <Link to='/userProfile'>Follow Me</Link>
           

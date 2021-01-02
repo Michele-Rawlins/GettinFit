@@ -193,7 +193,7 @@ sundayCount,
     <div className="beginning-progress photos d-flex flex-wrap">
       <Card className="beginningCard p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">Where we started</CardTitle>
-        <img src={userProfile.beginningPhoto}className="beginningImage col-4"alt= "Beginning Pic"/>
+        <img src={userProfile.beginningPhoto}className="beginningImage cardPic col-4"alt= "Beginning Pic"/>
         <CardBody>
           
                    
@@ -216,7 +216,7 @@ sundayCount,
   
       <Card className="p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">Upload a progress photo on your user profile</CardTitle>
-        <img src={userProfile.progressPhoto}className="ProgressImage col-4"alt= "Progress Pic"/>
+        <img src={userProfile.progressPhoto}className="ProgressImage cardPic col-4"alt= "Progress Pic"/>
         <CardBody>
           
                    
