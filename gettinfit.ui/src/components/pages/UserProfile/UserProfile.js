@@ -266,7 +266,7 @@ thisMonthWeight,
 } = this.state;
   return(
     <div className="UserProfile col-md-12">
-      <h2>{`${userProfile.firstName} ${userProfile.lastName}'s Profile`}</h2>
+      <h2>{`${userProfile.firstName} ${userProfile.lastName} Profile`}</h2>
 
         <div className="profile-container">
           <img src={`${userProfile.imageUrl}`} className="userProfileImage col-4"alt= "Profile Pic"/>
