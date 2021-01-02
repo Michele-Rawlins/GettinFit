@@ -262,9 +262,187 @@ namespace GettinFit.Data
 
         }
 
+        public int GetMondayWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -8, getdate()))and (select dateadd(day, -7, getdate()))";
 
 
+            var parameters = new { uid = userId };
 
+            var MondayWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (MondayWeightLifted == null) { return 0; }
+
+            return (int)MondayWeightLifted;
+
+        }
+
+        public int GetTuesdayWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -7, getdate()))and (select dateadd(day, -6, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var TuesdayWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (TuesdayWeightLifted == null) { return 0; }
+
+            return (int)TuesdayWeightLifted;
+
+        }
+
+        public int GetWednesdayWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -6, getdate()))and (select dateadd(day, -5, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var WednesdayWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (WednesdayWeightLifted == null) { return 0; }
+
+            return (int)WednesdayWeightLifted;
+
+        }
+
+        public int GetThursdayWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -5, getdate()))and (select dateadd(day, -4, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var ThursdayWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (ThursdayWeightLifted == null) { return 0; }
+
+            return (int)ThursdayWeightLifted;
+
+        }
+
+        public int GetFridayWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -4, getdate()))and (select dateadd(day, -3, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var FridayWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (FridayWeightLifted == null) { return 0; }
+
+            return (int)FridayWeightLifted;
+
+        }
+
+        public int GetSaturdayWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -3, getdate()))and (select dateadd(day, -2, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var SaturdayWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (SaturdayWeightLifted == null) { return 0; }
+
+            return (int)SaturdayWeightLifted;
+
+        }
+
+        public int GetSundayWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+            AND Date between(select dateadd(day, -2, getdate()))and (select dateadd(day, -1, getdate()))";
+
+
+            var parameters = new { uid = userId };
+
+            var SundayWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (SundayWeightLifted == null) { return 0; }
+
+            return (int)SundayWeightLifted;
+
+        }
+
+        public int GetLastMonthsWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int))
+                            FROM Workouts
+                            WHERE UserId = @uid
+         AND Date BETWEEN (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()) - 1, 0))and (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), -1) )";
+
+
+            var parameters = new { uid = userId };
+
+            var LastMonthsWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+
+            if (LastMonthsWeightLifted == null) { return 0; }
+
+            return (int)LastMonthsWeightLifted;
+
+        }
+
+        public int GetThisMonthsWeightLifted(int userId)
+        {
+            using var db = new SqlConnection(_connectionString);
+
+            var query = @"SELECT SUM(CAST(weight as int) * cast(sets as int)* cast(reps as int)) 
+                            FROM Workouts
+                            WHERE UserId = @uid
+                            AND Date BETWEEN (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0) ) 
+                            and (SELECT DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()) + 1, -1))";
+
+
+            var parameters = new { uid = userId };
+
+            var ThisMonthsWeightLifted = db.QuerySingleOrDefault<int?>(query, parameters);
+
+            if (ThisMonthsWeightLifted == null) { return 0; }
+
+            return (int)ThisMonthsWeightLifted;
+
+        }
 
         public List <Workout> GetUserWorkouts(int userId)
         {

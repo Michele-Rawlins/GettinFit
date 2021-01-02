@@ -28,6 +28,16 @@ class UserProfile extends React.Component {
     fridayCount:0,
     saturdayCount:0,
     sundayCount:0,
+    mondayWeight:0,
+    tuesdayWeight:0,
+    wednesdayWeight:0,
+    thursdayWeight:0,
+    fridayWeight:0,
+    saturdayWeight:0,
+    sundayWeight:0,
+    lastMonthWeight: 0,
+    thisMonthWeight: 0,
+
       }
 
   
@@ -55,6 +65,15 @@ class UserProfile extends React.Component {
     .then(() => this.getFridayCount())
     .then(() => this.getSaturdayCount())
     .then(() => this.getSundayCount())
+    .then(() => this.getMondayWeight())
+    .then(() => this.getTuesdayWeight())
+    .then(() => this.getWednesdayWeight())
+    .then(() => this.getThursdayWeight())
+    .then(() => this.getFridayWeight())
+    .then(() => this.getSaturdayWeight())
+    .then(() => this.getSundayWeight())
+    .then(() => this.getLastMonthWeight())
+    .then(() => this.getThisMonthWeight())
 
 
 
@@ -147,6 +166,75 @@ class UserProfile extends React.Component {
     .then(sundayCount => { this.setState({sundayCount})})
     }
 
+    
+    getMondayWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getMondayWeightLifted(userProfile.userId)
+
+    .then(mondayWeight => { this.setState({mondayWeight})
+    console.log(mondayWeight)})
+    }
+
+    getTuesdayWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getTuesdayWeightLifted(userProfile.userId)
+
+    .then(tuesdayWeight => { this.setState({tuesdayWeight})
+    console.log(tuesdayWeight)})
+    }
+
+    getWednesdayWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getWednesdayWeightLifted(userProfile.userId)
+
+    .then(wednesdayWeight => { this.setState({wednesdayWeight})
+    console.log(wednesdayWeight)})
+    }
+
+    getThursdayWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getThursdayWeightLifted(userProfile.userId)
+
+    .then(thursdayWeight => { this.setState({thursdayWeight})
+    console.log(thursdayWeight)})
+    }
+
+    getFridayWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getFridayWeightLifted(userProfile.userId)
+
+    .then(fridayWeight => { this.setState({fridayWeight})
+    console.log(fridayWeight)})
+    }
+
+    getSaturdayWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getSaturdayWeightLifted(userProfile.userId)
+
+    .then(saturdayWeight => { this.setState({saturdayWeight})
+    console.log(saturdayWeight)})
+    }
+
+    getSundayWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getSundayWeightLifted(userProfile.userId)
+
+    .then(sundayWeight => { this.setState({sundayWeight})
+    console.log(sundayWeight)})
+    }
+
+    getLastMonthWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getLastMonthsWeightLifted(userProfile.userId)
+    .then(lastMonthWeight => { this.setState({lastMonthWeight})})
+    }
+
+    getThisMonthWeight = () => {
+      const { userProfile } = this.state;
+      workoutData.getThisMonthsWeightLifted(userProfile.userId)
+    .then(thisMonthWeight => { this.setState({thisMonthWeight})})
+    }
+
 
 render() {
 const {
@@ -165,6 +253,16 @@ thursdayCount,
 fridayCount,
 saturdayCount,
 sundayCount,
+mondayWeight,
+tuesdayWeight,
+wednesdayWeight,
+thursdayWeight,
+fridayWeight,
+saturdayWeight,
+sundayWeight,
+lastMonthWeight,
+thisMonthWeight,
+
 } = this.state;
   return(
     <div className="UserProfile col-md-12">
@@ -230,25 +328,25 @@ sundayCount,
       <CardText>Last Week</CardText>
       <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"/>
       
-          <CardText className="column">Monday:  Calories Consumed: <hr></hr>{`${mondayCount}`}  </CardText>
-          <CardText className="column">Tuesday: Calories Consumed: <hr></hr> {`${tuesdayCount}`}  </CardText>
-          <CardText className="column">Wednesday: Calories Consumed: <hr></hr> {`${wednesdayCount}`}  </CardText>
-          <CardText className="column">Thursday:  Calories Consumed: <hr></hr> {`${thursdayCount}`}  </CardText>
-          <CardText className="column">Friday:  Calories Consumed:  <hr></hr> {`${fridayCount}`}  </CardText>
-          <CardText className="column">Saturday:  Calories Consumed:<hr></hr> {`${saturdayCount}`} </CardText>
-          <CardText className="column">Sunday:  Calories Consumed: <hr></hr> {`${sundayCount}`}  </CardText> 
+          <CardText className="column">Monday: <hr></hr> Calories Consumed: <hr></hr>{`${mondayCount}`}</CardText>
+          <CardText className="column">Tuesday:<hr></hr> Calories Consumed: <hr></hr> {`${tuesdayCount}`}</CardText>
+          <CardText className="column">Wednesday:<hr></hr> Calories Consumed: <hr></hr> {`${wednesdayCount}`}</CardText>
+          <CardText className="column">Thursday: <hr></hr> Calories Consumed: <hr></hr> {`${thursdayCount}`} </CardText>
+          <CardText className="column">Friday:<hr></hr>  Calories Consumed:  <hr></hr> {`${fridayCount}`} </CardText>
+          <CardText className="column">Saturday:<hr></hr>  Calories Consumed:<hr></hr> {`${saturdayCount}`} </CardText>
+          <CardText className="column">Sunday: <hr></hr> Calories Consumed: <hr></hr> {`${sundayCount}`} </CardText> 
                     </div>
       <hr></hr>
       <div className="p-2 col-example text-center d-flex col-6 workoutCard">
       <CardText>Last Week</CardText>
         <img src = "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=400&q=80"/>
-          <CardText className="column">Monday:  Calories Burned: <hr></hr> {`${mondayCalorie}`} </CardText>
-          <CardText className="column">Tuesday: Calories Burned: <hr></hr> {`${tuesdayCalorie}`}  </CardText>
-          <CardText className="column">Wednesday: Calories Burned:<hr></hr> {`${wednesdayCalorie}`}  </CardText>
-          <CardText className="column">Thursday:  Calories Burned: <hr></hr> {`${thursdayCalorie}`}  </CardText>
-          <CardText className="column">Friday:  Calories Burned: <hr></hr> {`${fridayCalorie}`}   </CardText>
-          <CardText className="column">Saturday:  Calories Burned: <hr></hr> {`${saturdayCalorie}`}  </CardText>
-          <CardText className="column">Sunday:  Calories Burned: <hr></hr> {`${sundayCalorie}`}  </CardText> 
+          <CardText className="column">Monday: <hr></hr>  Calories Burned: <hr></hr> {`${mondayCalorie}`}<hr></hr>  Weight Lifted:<hr></hr>  {`${mondayWeight}`} </CardText>
+          <CardText className="column">Tuesday: <hr></hr> Calories Burned: <hr></hr> {`${tuesdayCalorie}`}  <hr></hr> Weight Lifted:<hr></hr>  {`${tuesdayWeight}`} </CardText>
+          <CardText className="column">Wednesday:<hr></hr>  Calories Burned:<hr></hr> {`${wednesdayCalorie}`}<hr></hr> Weight Lifted:<hr></hr>  {`${wednesdayWeight}`}  </CardText>
+          <CardText className="column">Thursday: <hr></hr>  Calories Burned: <hr></hr> {`${thursdayCalorie}`} <hr></hr> Weight Lifted:<hr></hr>  {`${thursdayWeight}`} </CardText>
+          <CardText className="column">Friday:<hr></hr>   Calories Burned: <hr></hr> {`${fridayCalorie}`} <hr></hr> Weight Lifted:<hr></hr>  {`${fridayWeight}`}   </CardText>
+          <CardText className="column">Saturday: <hr></hr>  Calories Burned: <hr></hr> {`${saturdayCalorie}`} <hr></hr>Weight Lifted:<hr></hr>  {`${saturdayWeight}`}  </CardText>
+          <CardText className="column">Sunday:<hr></hr>   Calories Burned: <hr></hr> {`${sundayCalorie}`} <hr></hr> Weight Lifted:<hr></hr>  {`${sundayWeight}`} </CardText> 
   </div>
           </div> 
           </div>
