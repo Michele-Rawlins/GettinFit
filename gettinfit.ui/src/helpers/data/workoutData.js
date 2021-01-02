@@ -75,6 +75,68 @@ const getThisMonthsCaloriesBurned = (UserId) => new Promise((resolve, reject) =>
     .catch(reject);
 });
 
+const getMondayWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/mondayWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getTuesdayWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/tuesdayWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getWednesdayWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/wednesdayWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getThursdayWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/thursdayWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getFridayWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/fridayWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getSaturdayWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/saturdayWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getSundayWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/sundayWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getLastMonthsWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/lastMonthsWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
+
+const getThisMonthsWeightLifted = (UserId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/workouts/thisMonthsWeightLifted/${UserId}`)
+    .then(response => {
+      resolve(response.data)})
+    .catch(reject);
+});
 
 const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
 // const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
@@ -90,6 +152,15 @@ export default {
   getSaturdayCaloriesBurned,
   getSundayCaloriesBurned,
   getLastMonthsCaloriesBurned,
-  getThisMonthsCaloriesBurned
+  getThisMonthsCaloriesBurned,
+  getMondayWeightLifted,
+  getTuesdayWeightLifted,
+  getWednesdayWeightLifted,
+  getThursdayWeightLifted,
+  getFridayWeightLifted,
+  getSaturdayWeightLifted,
+  getSundayWeightLifted,
+  getLastMonthsWeightLifted,
+  getThisMonthsWeightLifted
 
 }
