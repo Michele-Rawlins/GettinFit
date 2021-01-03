@@ -24,7 +24,9 @@ class MyNavbar extends React.Component {
     logMeOut = (e) => {
         e.preventDefault();
         firebase.auth().signOut();
-       <NavLink className="navbar-links" tag={RRNavLink} to='/login'>LogIn</NavLink>
+        <NavItem>
+     <NavLink className="navbar-links" tag={RRNavLink} to='/login'></NavLink>
+     </NavItem>
       }
 
     toggle = () => {
@@ -33,6 +35,16 @@ class MyNavbar extends React.Component {
 
     render() {
         const { isOpen } = this.state;
+        const showLogout = () => {
+          const { authed } = this.props;
+          if (authed) {
+              return (
+                  <NavItem>
+                      <NavLink className="navbar-links" tag={RRNavLink} to='/login' onClick={this.logMeOut}>Logout</NavLink>
+                  </NavItem>
+              )
+            }
+          };
 
                 return(
             <div className="MyNavbar">
@@ -59,15 +71,18 @@ class MyNavbar extends React.Component {
             <NavItem>
               <NavLink className="navbar-links" tag={RRNavLink} to='/login'>LogIn</NavLink>
             </NavItem>
-             <NavItem>
+             {/* <NavItem>
               <NavLink className="navbar-links" onClick={this.logMeOut}>Log Out</NavLink>
-          </NavItem>
+          </NavItem> */}
+          {showLogout()}
                 </Nav>
                     </Collapse>
                 </Navbar>
             </div>
                  )
                 }
-            }
+              }
+            
+          
             
             export default MyNavbar;

@@ -28,12 +28,19 @@ import MyFooter from '../components/shared/MyFooter/MyFooter';
 
 fbConnection();
 
-// const PrivateRoute = ({ component: Component, authed, ...rest }) => {
-//   const routeChecker = (props) => (authed === true
-//     ? (<Component {...props} />)
-//     : (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />));
-//   return <Route {...rest} render={(props) => routeChecker(props)} />;
-// };
+const PublicRoute = ({ component: Component, authed, ...rest }) => {
+  const routeChecker = (props) => (authed === false
+    ? (<Component {...props} />)
+    : (<Redirect to={{ pathname: '/home', state: { from: props.location } }} />));
+  return <Route {...rest} render={(props) => routeChecker(props)} />;
+};
+
+const PrivateRoute = ({ component: Component, authed, ...rest }) => {
+  const routeChecker = (props) => (authed === true
+    ? (<Component {...props} />)
+    : (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />));
+  return <Route {...rest} render={(props) => routeChecker(props)} />;
+};
 
 
 
@@ -80,10 +87,10 @@ class App extends React.Component {
                <Route path='/users/:usersId' component={SingleUser} authed={authed} />
                <Route path='/workout' component={Workout} authed={authed} />
                <Route path='/users' component={Users} authed={authed} />
-               <Route path='/meals' component={Meal} suthed={authed} />
+               <Route path='/meals' component={Meal} authed={authed} />
                 <Route path='/userProfile' component={UserProfile} authed={authed} /> 
-                <Route path="/login" component={Login} authed={authed}/>
-                <Redirect from= "*" to="/home"/>
+                <Route path='/login' component={Login} authed={authed}/>
+                <Redirect from="*" to='/home'/>
               </Switch>
               </div>
             </div>
