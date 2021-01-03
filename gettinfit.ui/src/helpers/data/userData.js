@@ -17,6 +17,10 @@ const getUserByEmail = (email) => new Promise((resolve, reject) => {
 
 const getSingleUser = (userId) => axios.get(`${baseUrl}/users/${userId}`);
 
+const getUserWeightGoal = (userId) => axios.get(`${baseUrl}/users/${userId}`);
+const getUserCurrentWeight = (userId) => axios.get(`${baseUrl}/users/${userId}`);
+const getUserBeginningWeight = (userId) => axios.get(`${baseUrl}/users/${userId}`);
+
 const updateUser = (userId, updatedUser) => axios.put(`${baseUrl}/users/${userId}`, updatedUser);
 
 
@@ -25,4 +29,7 @@ export default {
   getUserByEmail,
   getSingleUser,
   updateUser,
+  getUserWeightGoal,
+  getUserCurrentWeight,
+  getUserBeginningWeight
 };
