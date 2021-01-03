@@ -3,9 +3,10 @@ import firebase from 'firebase'
 import userData from '../../../helpers/data/userData';
 import mealData from '../../../helpers/data/mealData';
 import workoutData from '../../../helpers/data/workoutData';
+import ProgressBar from '../../shared/ProgressBar/ProgressBar';
 
 import {
-  Card, CardImg, CardText, CardTitle,CardBody, Col, Row
+  Card, CardImg, CardText, CardTitle,CardBody, Col, Row, Progress,
 } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
@@ -37,6 +38,7 @@ class UserProfile extends React.Component {
     sundayWeight:0,
     lastMonthWeight: 0,
     thisMonthWeight: 0,
+    
 
       }
 
@@ -263,7 +265,11 @@ sundayWeight,
 lastMonthWeight,
 thisMonthWeight,
 
+
 } = this.state;
+
+
+
   return(
     <div className="UserProfile col-md-12">
       <h2>{`${userProfile.firstName} ${userProfile.lastName} Profile`}</h2>
@@ -292,34 +298,23 @@ thisMonthWeight,
       <Card className="beginningCard p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">Where we started</CardTitle>
         <img src={userProfile.beginningPhoto}className="beginningImage cardPic col-4"alt= "Beginning Pic"/>
-        <CardBody>
-          
-                   
-        </CardBody>
       </Card>
       
-    
-   
     <Card className="p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">How Far have we come?</CardTitle>
           <CardBody>
-        
           <CardText>Let's compare</CardText>
-         
-        </CardBody>
+          </CardBody>
       </Card>
-     
-   
-   
-  
-      <Card className="p-2 col-example text-center d-flex col-3 photoCard">
+
+        <Card className="p-2 col-example text-center d-flex col-3 photoCard">
           <CardTitle tag="h4">Upload a progress photo on your user profile</CardTitle>
         <img src={userProfile.progressPhoto}className="ProgressImage cardPic col-4"alt= "Progress Pic"/>
-        <CardBody>
-          
-                   
-        </CardBody>
+      
       </Card>
+      <div className="progress-bar container">
+        <ProgressBar />
+      </div>
       </div>
           
       <hr></hr>
