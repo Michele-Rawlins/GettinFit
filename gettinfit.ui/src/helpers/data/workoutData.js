@@ -139,7 +139,7 @@ const getThisMonthsWeightLifted = (UserId) => new Promise((resolve, reject) => {
 });
 
 const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
-// const addWorkout = (newWorkout) => axios.post(`${baseUrl}/workouts`, newWorkout);
+
 
 export default {
   GetUserWorkouts,

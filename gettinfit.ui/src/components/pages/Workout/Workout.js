@@ -212,13 +212,7 @@ class Workout extends React.Component {
       workoutData.getThisMonthsWeightLifted(userProfile.userId)
     .then(thisMonthWeight => { this.setState({thisMonthWeight})})
     }
-//  addWorkoutData = () => {
-//    const {userProfile} = this.state;
-//    const newWorkout = '';
-//    workoutData.addWorkout(userProfile.userId)
-//  .then(newWorkout => this.props.history.push('/workouts'))
-//  .catch((err) => console.error('unable to add new Workout'))
-// }
+
 
   newExerciseName = (e) => {
     e.preventDefault();
