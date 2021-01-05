@@ -5,6 +5,12 @@ import userData from '../../../helpers/data/userData';
 import authData from '../../../../src/helpers/data/authData';
 import firebase from 'firebase'
 
+import {
+  BrowserRouter,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 
 import {
   Card, CardImg, CardText, CardTitle,CardBody, Col, Row
@@ -61,8 +67,7 @@ class Meal extends React.Component {
     getMondayData = () => {
       const { userProfile } = this.state;
       mealData.getMondayCalorieCount(userProfile.userId)
-    .then(mondayCalorie => { this.setState({mondayCalorie})
-    console.log(mondayCalorie)})
+    .then(mondayCalorie => { this.setState({mondayCalorie})})
     }
 
     getTuesdayData = () => {
@@ -135,7 +140,6 @@ class Meal extends React.Component {
 
   saveNewMeal = (e) => {
     e.preventDefault();
-    
     const {
       user,
       userProfile,
@@ -155,12 +159,13 @@ const newMeal = {
 
 };
 
-console.log(newMeal);
-console.log(userProfile);
-console.log(user);
+console.log(this.props)
+
+const {history} = this.props;
+history.push('/meals')
 
 mealData.addMeal(newMeal)
- .then(() => this.props.history.push('/meals'))
+ .then(() => this.props.history.push('/home'))
  .catch((err) => console.error('unable to add new Meal'))
   }
 

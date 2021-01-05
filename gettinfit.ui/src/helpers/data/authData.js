@@ -2,6 +2,8 @@ import firebase from 'firebase';
 import axios from 'axios';
 import {baseUrl} from '../data/constants.json';
 
+
+
 // interceptors work by changing the outbound request before the xhr is sent 
 // or by changing the response before it's returned to our .then() method.
 axios.interceptors.request.use(function (request) {
@@ -57,9 +59,19 @@ const loginUser = (user) => {
   });
 };
 
-const logoutUser = () => {
+
+
+const logoutUser = (user) => {
   sessionStorage.removeItem('token')
   return firebase.auth().signOut();
+  // .then(() => {
+  //   this.props.history.push('/login');
+  // })
+  // .catch((error) => {
+  //   console.error('there was an error logging out', error);
+  // });
+  // this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN' }])
+ 
 };
 
 const getUid = () => {
