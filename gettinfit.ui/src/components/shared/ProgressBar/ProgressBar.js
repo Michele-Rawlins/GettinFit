@@ -56,7 +56,7 @@ render () {
   return (
     <div>
       <div className="title">Weight Progress Bar</div>
-      <Progress value={parseInt(userProfile.currentWeight)} />
+      {/* <Progress value={parseInt(userProfile.currentWeight)} /> */}
       <Progress striped variant color="success" value={parseInt(userProfile.beginningWeight) - parseInt(userProfile.weightGoal)} />
      
     </div>

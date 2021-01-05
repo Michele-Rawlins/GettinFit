@@ -23,7 +23,7 @@ class Home extends React.Component {
       <h1 className ="title">Welcome to Gettin Fit</h1>
       <MyCarousel />
 <div className="link-container d-flex flex-wrap">
-      <Card className="p-2 col-example text-center d-flex col-3 workoutCard">
+      <Card className="p-2 col-example text-center d-flex col-3 workoutHomeCard">
           <CardTitle tag="h4">Let's Workout</CardTitle>
         <CardImg className="cardPic"src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29ya291dHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=60" alt="Card image cap" />
         <CardBody>

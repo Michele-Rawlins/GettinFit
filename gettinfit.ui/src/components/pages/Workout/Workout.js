@@ -272,12 +272,14 @@ const newWorkout = {
     caloriesBurned:  newCaloriesBurned,
     date: newDate,
     userId:userProfile.userId
-    // uid: authData.getUid(),
+  
 
 };
 
-console.log(newWorkout);
+
+
  workoutData.addWorkout(newWorkout)
+
  .then(() => this.props.history.push('/workouts'))
  .catch((err) => console.error('unable to add new Workout'))
 }

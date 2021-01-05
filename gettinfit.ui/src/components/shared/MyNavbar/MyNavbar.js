@@ -10,6 +10,8 @@ import {
     NavLink,
 } from 'reactstrap';
 
+import authData from '../../../helpers/data/authData';
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import './MyNavbar.scss';
@@ -22,17 +24,23 @@ class MyNavbar extends React.Component {
     
 
     logMeOut = (e) => {
-        e.preventDefault();
-        firebase.auth().signOut();
-        <NavItem>
-     <NavLink className="navbar-links" tag={RRNavLink} to='/login'></NavLink>
-     </NavItem>
-      }
+      const { user } = this.state;
+      e.preventDefault();
+      firebase.auth().signOut();
+      authData.logoutUser(user)
+      return 
+      <NavItem>
+   <NavLink className="navbar-links" tag={RRNavLink} to='/login'></NavLink>
+   </NavItem>
+         
+       
+      };
 
     toggle = () => {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
+   
     render() {
         const { isOpen } = this.state;
         const showLogout = () => {
@@ -40,7 +48,7 @@ class MyNavbar extends React.Component {
           if (authed) {
               return (
                   <NavItem>
-                      <NavLink className="navbar-links" tag={RRNavLink} to='/login' onClick={this.logMeOut}>Logout</NavLink>
+                      <NavLink className="navbar-links" onClick={this.logMeOut}>Logout</NavLink>
                   </NavItem>
               )
             }
