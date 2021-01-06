@@ -28,13 +28,7 @@ class MyNavbar extends React.Component {
       e.preventDefault();
       firebase.auth().signOut();
       authData.logoutUser(user)
-      return 
-      <NavItem>
-   <NavLink className="navbar-links" tag={RRNavLink} to='/login'></NavLink>
-   </NavItem>
-         
-       
-      };
+    };
 
     toggle = () => {
         this.setState({ isOpen: !this.state.isOpen });
@@ -55,35 +49,29 @@ class MyNavbar extends React.Component {
           };
 
                 return(
-            <div className="MyNavbar">
-                <Navbar color="dark" dark expand="md">
-                    <NavbarBrand to="/home">GettinFit</NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
-                    <NavItem>
-              <NavLink className="navbar-links" tag={RRNavLink} to='/home'>Home</NavLink>
-            </NavItem>
-                    <NavItem>
-              <NavLink className="navbar-links" tag={RRNavLink} to='/workout'>Workout</NavLink>
-            </NavItem>
-            {/* <NavItem>
-              <NavLink className="navbar-links" tag={RRNavLink} to='/users'>Users</NavLink>
-            </NavItem> */}
-            <NavItem>
-              <NavLink className="navbar-links" tag={RRNavLink} to='/userProfile'>User Profile</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="navbar-links" tag={RRNavLink} to='/meals'>Meals</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="navbar-links" tag={RRNavLink} to='/login'>LogIn</NavLink>
-            </NavItem>
-             {/* <NavItem>
-              <NavLink className="navbar-links" onClick={this.logMeOut}>Log Out</NavLink>
-          </NavItem> */}
-          {showLogout()}
-                </Nav>
+                    <div className="MyNavbar">
+                      <Navbar color="dark" dark expand="md">
+                        <NavbarBrand to="/home">GettinFit</NavbarBrand>
+                        <NavbarToggler onClick={this.toggle} />
+                        <Collapse isOpen={isOpen} navbar>
+                        <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <NavLink className="navbar-links" tag={RRNavLink} to='/home'>Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                           <NavLink className="navbar-links" tag={RRNavLink} to='/workout'>Workout</NavLink>
+                        </NavItem>
+                        <NavItem>
+                           <NavLink className="navbar-links" tag={RRNavLink} to='/userProfile'>User Profile</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className="navbar-links" tag={RRNavLink} to='/meals'>Meals</NavLink>
+                       </NavItem>
+                      <NavItem>
+                            <NavLink className="navbar-links" tag={RRNavLink} to='/login'>LogIn</NavLink>
+                      </NavItem>
+                     {showLogout()}
+                     </Nav>
                     </Collapse>
                 </Navbar>
             </div>

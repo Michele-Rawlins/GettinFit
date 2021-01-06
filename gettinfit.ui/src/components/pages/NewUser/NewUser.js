@@ -149,7 +149,7 @@ const newUser = {
     beginningPhoto: newBeginningPhoto,
     progressPhoto: newProgressPhoto,
     date:  newDate,
-     // uid: authData.getUid(),
+ 
 
 };
 

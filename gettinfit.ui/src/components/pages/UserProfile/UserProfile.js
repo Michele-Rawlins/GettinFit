@@ -6,7 +6,7 @@ import workoutData from '../../../helpers/data/workoutData';
 import ProgressBar from '../../shared/ProgressBar/ProgressBar';
 
 import {
-  Card, CardImg, CardText, CardTitle,CardBody, Col, Row, Progress,
+  Card, CardImg, CardText, CardTitle,CardBody
 } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
@@ -173,56 +173,49 @@ class UserProfile extends React.Component {
       const { userProfile } = this.state;
       workoutData.getMondayWeightLifted(userProfile.userId)
 
-    .then(mondayWeight => { this.setState({mondayWeight})
-    console.log(mondayWeight)})
+    .then(mondayWeight => { this.setState({mondayWeight})})
     }
 
     getTuesdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getTuesdayWeightLifted(userProfile.userId)
 
-    .then(tuesdayWeight => { this.setState({tuesdayWeight})
-    console.log(tuesdayWeight)})
+    .then(tuesdayWeight => { this.setState({tuesdayWeight})})
     }
 
     getWednesdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getWednesdayWeightLifted(userProfile.userId)
 
-    .then(wednesdayWeight => { this.setState({wednesdayWeight})
-    console.log(wednesdayWeight)})
+    .then(wednesdayWeight => { this.setState({wednesdayWeight})})
     }
 
     getThursdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getThursdayWeightLifted(userProfile.userId)
 
-    .then(thursdayWeight => { this.setState({thursdayWeight})
-    console.log(thursdayWeight)})
+    .then(thursdayWeight => { this.setState({thursdayWeight})})
     }
 
     getFridayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getFridayWeightLifted(userProfile.userId)
 
-    .then(fridayWeight => { this.setState({fridayWeight})
-    console.log(fridayWeight)})
+    .then(fridayWeight => { this.setState({fridayWeight})})
     }
 
     getSaturdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getSaturdayWeightLifted(userProfile.userId)
 
-    .then(saturdayWeight => { this.setState({saturdayWeight})
-    console.log(saturdayWeight)})
+    .then(saturdayWeight => { this.setState({saturdayWeight})})
     }
 
     getSundayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getSundayWeightLifted(userProfile.userId)
 
-    .then(sundayWeight => { this.setState({sundayWeight})
-    console.log(sundayWeight)})
+    .then(sundayWeight => { this.setState({sundayWeight})})
     }
 
     getLastMonthWeight = () => {
@@ -262,8 +255,6 @@ thursdayWeight,
 fridayWeight,
 saturdayWeight,
 sundayWeight,
-lastMonthWeight,
-thisMonthWeight,
 
 
 } = this.state;
@@ -342,13 +333,13 @@ thisMonthWeight,
           <CardText className="column">Friday:<hr></hr>   Calories Burned: <hr></hr> {`${fridayCalorie}`} <hr></hr> Weight Lifted:<hr></hr>  {`${fridayWeight}`}   </CardText>
           <CardText className="column">Saturday: <hr></hr>  Calories Burned: <hr></hr> {`${saturdayCalorie}`} <hr></hr>Weight Lifted:<hr></hr>  {`${saturdayWeight}`}  </CardText>
           <CardText className="column">Sunday:<hr></hr>   Calories Burned: <hr></hr> {`${sundayCalorie}`} <hr></hr> Weight Lifted:<hr></hr>  {`${sundayWeight}`} </CardText> 
+      </div>
+    </div> 
   </div>
-          </div> 
-          </div>
          
 
-  )
-}
+   )
+  }
 }
 
 export default UserProfile;

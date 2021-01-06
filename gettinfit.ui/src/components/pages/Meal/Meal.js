@@ -2,18 +2,12 @@ import React from 'react';
 import mealData from '../../../helpers/data/mealData';
 import mealShape from '../../../helpers/propz/mealShape';
 import userData from '../../../helpers/data/userData';
-import authData from '../../../../src/helpers/data/authData';
+
 import firebase from 'firebase'
 
-import {
-  BrowserRouter,
-  Route,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
 
 import {
-  Card, CardImg, CardText, CardTitle,CardBody, Col, Row
+  Card, CardImg, CardText, CardTitle,CardBody, 
 } from 'reactstrap';
 
 class Meal extends React.Component {
@@ -34,7 +28,7 @@ class Meal extends React.Component {
     sundayCalorie:0,
     lastMonthCalorie: 0,
     thisMonthCalorie: 0,
-    // uid: 0,
+ 
      }
 
      componentDidMount() {
@@ -293,8 +287,8 @@ mealData.addMeal(newMeal)
       </Card>
      
     </div>
-       </div>
-       </div>   
+  </div>
+</div>   
   )
 }
 }
