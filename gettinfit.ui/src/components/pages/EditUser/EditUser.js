@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase'
 
-import authData from '../../../helpers/data/authData';
+
 
 import userData from '../../../helpers/data/userData';
 
@@ -33,9 +33,7 @@ class EditUser extends React.Component {
       var user = firebase.auth().currentUser;
       let email = user.email;
       const { userProfile } = this.state;
-      // if (user != null) {
-      //   email = user.email;
-      // }
+      
       userData.getUserByEmail(email)
       .then(userProfile => { this.setState({userProfile})}) 
       .then(() => this.getActiveUser())
@@ -46,7 +44,7 @@ class EditUser extends React.Component {
 
 
      getActiveUser = () => {
-      // const userId = this.props.match.params.userId;
+      
       const { userProfile } = this.state;
       userData.getSingleUser(userProfile.userId)
       .then((response) => {

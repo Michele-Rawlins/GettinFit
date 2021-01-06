@@ -47,7 +47,7 @@ class Login extends React.Component {
       <div className="Login">
         <div id="login-form">
           <h1 className="text-center">Login</h1>
-          <form className="form-horizontal col-sm-6 col-sm-offset-3">
+           <form className="form-horizontal col-sm-6 col-sm-offset-3">
             <div className="form-group">
               <label htmlFor="inputEmail" className="col-sm-8 control-label">
                 Email:

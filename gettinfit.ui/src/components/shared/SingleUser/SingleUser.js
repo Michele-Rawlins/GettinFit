@@ -12,16 +12,13 @@ class SingleUser extends React.Component {
     var user = firebase.auth().currentUser;
     let email = user.email;
     
-    // if (user != null) {
-    //   email = user.email;
-    // }
     userData.getUserByEmail(email)
-    .then(userProfile => { this.setState({userProfile}) })
+      .then(userProfile => { this.setState({userProfile}) })
 
   }
   render() {
-    const {user,
-    userProfile
+    const {
+      userProfile
   } = this.state;
 
     return (

@@ -11,11 +11,14 @@ class ProgressBar extends React.Component {
 
 }
 
-
+ProgressBar = (props) => {
+  const {value, max } = props;
+}
 componentDidMount() {
+
   var user = firebase.auth().currentUser;
   let email = '';
-
+  
   if (user != null) {
     email = user.email;
   }
@@ -24,7 +27,9 @@ componentDidMount() {
   .then(currentWeight => { this.setState({currentWeight})})
   .then(beginningWeight => { this.setState({beginningWeight})})
   .then(weightGoal => { this.setState({weightGoal})})
+  
 }
+
 
 
 getUsersCurrentWeight = () => {
@@ -46,18 +51,18 @@ getUsersWeightGoal = () => {
 }
 
 render () {
- const {
-   ProgressBar,
-   userProfile,
-
- }= this.state;
-
-  {
-  return (
-    <div>
+ const { userProfile }= this.state;
+ 
+// ProgressBar = (props) => {
+//   const {value, max } = props;
+// }
+ {
+   return (
+     <div>
       <div className="title">Weight Progress Bar</div>
+<progress value={parseInt(userProfile.currentWeight)} max={parseInt(userProfile.beginningWeight)} />
       {/* <Progress value={parseInt(userProfile.currentWeight)} /> */}
-      <Progress striped variant color="success" value={parseInt(userProfile.beginningWeight) - parseInt(userProfile.weightGoal)} />
+      {/* <Progress striped variant color="success" value={parseInt(userProfile.weightGoal) - parseInt(userProfile.currentWeight)} max={parseInt(userProfile.beginningWeight)} /> */}
      
     </div>
   );

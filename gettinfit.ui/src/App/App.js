@@ -35,13 +35,29 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => {
   return <Route {...rest} render={(props) => routeChecker(props)} />;
 };
 
-const PrivateRoute = ({ component: Component, authed, ...rest }) => {
-  const routeChecker = (props) => (authed === true
-    ? (<Component {...props} />)
-    : (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />));
-  return <Route {...rest} render={(props) => routeChecker(props)} />;
-};
+// const PrivateRoute = ({ component: Component, authed, ...rest }) => {
+//   const routeChecker = (props) => (authed === true
+//     ? (<Component {...props} />)
+//     : (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />));
+//   return <Route {...rest} render={(props) => routeChecker(props)} />;
+// };
 
+const PrivateRoute = ({ component: Component, authed, ...rest}) => {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        authed === true ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{ pathname: '/login', state: {from: props.location}}}
+          />
+        )
+      }
+    />
+  );
+};
 
 
 class App extends React.Component {
@@ -85,10 +101,10 @@ class App extends React.Component {
               <Route path='/users/new' component={NewUser} authed={authed} />
               <Route path='/users/edit' component={EditUser} authed={authed} />
               <Route path='/users/:usersId' component={SingleUser} authed={authed} />
-              <Route path='/workout' component={Workout} authed={authed} />
+              <PrivateRoute path='/workout' component={Workout} authed={authed} />
               <Route path='/users' component={Users} authed={authed} />
-              <Route path='/meals' component={Meal} authed={authed} />
-              <Route path='/userProfile' component={UserProfile} authed={authed} /> 
+              <PrivateRoute path='/meals' component={Meal} authed={authed} />
+              <PrivateRoute path='/userProfile' component={UserProfile} authed={authed} /> 
               <Route path='/login' component={Login} authed={authed}/>
                 <Redirect from="*" to='/home'/>
               </Switch>

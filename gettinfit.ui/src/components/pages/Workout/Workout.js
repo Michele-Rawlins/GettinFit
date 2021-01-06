@@ -2,19 +2,10 @@ import React from 'react';
 import workoutData from '../../../helpers/data/workoutData';
 import workoutShape from '../../../helpers/propz/workoutShape';
 import firebase from 'firebase'
-import authData from '../../../../src/helpers/data/authData';
 import userData from '../../../../src/helpers/data/userData';
 
 import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Table,
-} from 'reactstrap';
-
-import {
-  Card, CardImg, CardText, CardTitle,CardBody, Col, Row
+  Card, CardImg, CardText, CardTitle,CardBody 
 } from 'reactstrap';
 
 class Workout extends React.Component {
@@ -78,10 +69,7 @@ class Workout extends React.Component {
       .then(() => this.getSundayWeight())
       .then(() => this.getLastMonthWeight())
       .then(() => this.getThisMonthWeight())
-      
-
-    
-      // .then(() => this.addWorkoutData())
+       
     }
 
     getWorkoutData = () => {
@@ -89,12 +77,11 @@ class Workout extends React.Component {
     workoutData.GetUserWorkouts(userProfile.userId)
      .then(userWorkout => { this.setState({userWorkout}) })
     }
+
     getMondayData = () => {
       const { userProfile } = this.state;
       workoutData.getMondayCaloriesBurned(userProfile.userId)
-
-    .then(mondayCalorie => { this.setState({mondayCalorie})
-    console.log(mondayCalorie)})
+    .then(mondayCalorie => { this.setState({mondayCalorie})})
     }
 
     getTuesdayData = () => {
@@ -148,57 +135,43 @@ class Workout extends React.Component {
     getMondayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getMondayWeightLifted(userProfile.userId)
-
-    .then(mondayWeight => { this.setState({mondayWeight})
-    console.log(mondayWeight)})
+      .then(mondayWeight => { this.setState({mondayWeight})})
     }
 
     getTuesdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getTuesdayWeightLifted(userProfile.userId)
-
-    .then(tuesdayWeight => { this.setState({tuesdayWeight})
-    console.log(tuesdayWeight)})
+      .then(tuesdayWeight => { this.setState({tuesdayWeight})})
     }
 
     getWednesdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getWednesdayWeightLifted(userProfile.userId)
-
-    .then(wednesdayWeight => { this.setState({wednesdayWeight})
-    console.log(wednesdayWeight)})
+      .then(wednesdayWeight => { this.setState({wednesdayWeight})})
     }
 
     getThursdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getThursdayWeightLifted(userProfile.userId)
-
-    .then(thursdayWeight => { this.setState({thursdayWeight})
-    console.log(thursdayWeight)})
+      .then(thursdayWeight => { this.setState({thursdayWeight})})
     }
 
     getFridayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getFridayWeightLifted(userProfile.userId)
-
-    .then(fridayWeight => { this.setState({fridayWeight})
-    console.log(fridayWeight)})
+      .then(fridayWeight => { this.setState({fridayWeight})})
     }
 
     getSaturdayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getSaturdayWeightLifted(userProfile.userId)
-
-    .then(saturdayWeight => { this.setState({saturdayWeight})
-    console.log(saturdayWeight)})
+      .then(saturdayWeight => { this.setState({saturdayWeight})})
     }
 
     getSundayWeight = () => {
       const { userProfile } = this.state;
       workoutData.getSundayWeightLifted(userProfile.userId)
-
-    .then(sundayWeight => { this.setState({sundayWeight})
-    console.log(sundayWeight)})
+      .then(sundayWeight => { this.setState({sundayWeight})})
     }
 
     getLastMonthWeight = () => {
@@ -216,7 +189,6 @@ class Workout extends React.Component {
 
   newExerciseName = (e) => {
     e.preventDefault();
-  
     this.setState({ newExerciseName: e.target.value});
   }
 
@@ -252,7 +224,6 @@ class Workout extends React.Component {
   saveNewWorkout = (e) => {
       e.preventDefault();
     const {
-      user,
       userProfile,
       newExerciseName,
       newReps,
@@ -279,9 +250,8 @@ const newWorkout = {
 
 
  workoutData.addWorkout(newWorkout)
-
- .then(() => this.props.history.push('/workouts'))
- .catch((err) => console.error('unable to add new Workout'))
+   .then(() => this.props.history.push('/workouts'))
+  .catch((err) => console.error('unable to add new Workout'))
 }
 
   render() {
@@ -293,7 +263,6 @@ const newWorkout = {
         newBodyPart,
         newCaloriesBurned,
         newDate,
-        userWorkout,
         userProfile,
         mondayCalorie,
         tuesdayCalorie,
